@@ -1,0 +1,14 @@
+/* animate-in.css — scroll-triggered fade-up reveal */
+
+.animate-in-wrap {
+  opacity: 0;
+  transform: translateY(1.75rem);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-in-wrap[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}

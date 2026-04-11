@@ -1,0 +1,89 @@
+/* concept-toggle.css — floating concept switcher pill */
+
+.concept-toggle {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-end;
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+
+.concept-toggle:hover {
+  opacity: 1;
+}
+
+.concept-toggle__label {
+  padding-right: 0.25rem;
+  margin: 0;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(14, 12, 10, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.concept-toggle__buttons {
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  margin: 0;
+  list-style: none;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(14, 12, 10, 0.1);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+}
+
+.concept-toggle__buttons li {
+  display: flex;
+}
+
+.concept-toggle__btn {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(14, 12, 10, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  transition: all 0.15s ease;
+}
+
+.concept-toggle__btn:hover {
+  color: var(--one33-ink, #0e0c0a);
+}
+
+.concept-toggle__btn--active {
+  color: var(--one33-cream, #f5f0e8);
+  background: var(--one33-ink, #0e0c0a);
+}
+
+/* Touch devices: no hover available, keep toggle visible */
+@media (hover: none) {
+  .concept-toggle {
+    opacity: 0.85;
+  }
+}
+
+@media (max-width: 480px) {
+  .concept-toggle {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .concept-toggle__word {
+    display: none;
+  }
+}

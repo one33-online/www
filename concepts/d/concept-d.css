@@ -1,0 +1,867 @@
+/* concept-d.css — Dark Editorial
+   All selectors prefixed .cd- or scoped under .concept-d
+   to prevent style bleed into other concepts.
+*/
+
+/* ── Local tokens ────────────────────────────────── */
+.concept-d {
+  --cd-ink-mid: #1c1a15;
+  --cd-ink-light: #2d2a24;
+  /* Cormorant Garamond — registered in layout.tsx, used here only */
+  --cd-display: var(--font-cormorant);
+  position: relative;
+}
+
+/* ── Text selection ──────────────────────────────── */
+.concept-d ::selection {
+  color: var(--one33-cream);
+  background: var(--one33-rust);
+}
+
+/* ── Noise overlay — fixed, CSS-only ────────────── */
+.concept-d::before {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  opacity: 0.025;
+}
+
+/* ── Section kicker ──────────────────────────────── */
+.cd-kicker {
+  display: block;
+  margin: 0 0 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--one33-rust);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ── Section divider lines ───────────────────────── */
+.cd-divider {
+  position: absolute;
+  top: 0;
+  right: 3rem;
+  left: 3rem;
+  height: 1px;
+  pointer-events: none;
+  background: rgba(245, 240, 232, 0.08);
+}
+
+.cd-divider--light {
+  background: rgba(58, 52, 44, 0.1);
+}
+
+/* ── Nav override — transparent over dark hero ───── */
+.concept-d .nav-root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  color: var(--one33-cream);
+  background: transparent;
+}
+
+/* Donate CTA button — desktop only */
+.concept-d .nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--one33-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  background: var(--one33-rust);
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.concept-d .nav-cta-btn:hover {
+  background: var(--one33-terracotta);
+}
+
+/* Footer logo — Cormorant in concept D */
+.concept-d .footer-logo {
+  font-family: var(--cd-display);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ── Hero ────────────────────────────────────────── */
+.cd-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100dvh;
+  padding: 0 3rem 5rem;
+  overflow: hidden;
+  background: var(--one33-ink);
+}
+
+.cd-hero__image-slot {
+  position: absolute;
+  inset: 0;
+  background: #1c1a18;
+}
+
+.cd-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(14, 12, 9, 0.38);
+}
+
+/* Decorative stat — top-right corner */
+.cd-hero__stat {
+  position: absolute;
+  top: 7rem;
+  right: 3rem;
+  z-index: 2;
+  text-align: right;
+}
+
+.cd-hero__stat-num {
+  display: block;
+  font-family: var(--cd-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--one33-cream);
+  opacity: 0.08;
+}
+
+.cd-hero__stat-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--one33-cream);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.2;
+}
+
+/* Hero content — bottom-left */
+.cd-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.cd-hero__eyebrow {
+  margin-bottom: 2rem;
+}
+
+/* Full headline in Cormorant — the defining typographic moment */
+.cd-hero__headline {
+  max-width: 14ch;
+  margin: 0 0 2.5rem;
+  font-family: var(--cd-display);
+  font-size: clamp(3.5rem, 8vw, 8.5rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--one33-cream);
+  letter-spacing: -0.01em;
+}
+
+.cd-hero__headline-em {
+  font-style: italic;
+  color: rgba(245, 240, 232, 0.55);
+}
+
+.cd-hero__body {
+  max-width: 42ch;
+  margin: 0 0 3rem;
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(245, 240, 232, 0.6);
+}
+
+/* Animated scroll indicator */
+.cd-hero__scroll {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.cd-hero__scroll-line {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background: var(--one33-rust);
+  transform-origin: left;
+  animation: cd-scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes cd-scroll-line {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scaleX(0.3);
+  }
+}
+
+/* ── Statement (Why We Exist) ────────────────────── */
+.cd-statement {
+  position: relative;
+  padding: 12rem 3rem;
+  background: var(--one33-cream);
+}
+
+.cd-statement__content {
+  max-width: 580px;
+}
+
+/* Cormorant 300 — the light/bold contrast with <strong> is the signature */
+.cd-statement__heading {
+  max-width: 18ch;
+  margin: 0 0 1.75rem;
+  font-family: var(--cd-display);
+  font-size: clamp(2.8rem, 6vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1.08;
+  color: #3a342c;
+}
+
+.cd-statement__heading strong {
+  font-weight: 600;
+}
+
+.cd-statement__note {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(14, 12, 10, 0.45);
+}
+
+/* Right-side callout — absolute on desktop, static on mobile */
+.cd-statement__aside {
+  position: absolute;
+  right: 3rem;
+  bottom: 12rem;
+  max-width: 28ch;
+  padding-left: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(14, 12, 10, 0.55);
+  border-left: 2px solid var(--one33-rust);
+}
+
+/* ── What We Do (Method) ─────────────────────────── */
+.cd-method {
+  position: relative;
+  background: var(--cd-ink-mid);
+}
+
+.cd-method__inner {
+  max-width: 1200px;
+  padding: 10rem 3rem;
+  margin: 0 auto;
+}
+
+.cd-method__grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 4rem;
+  align-items: start;
+}
+
+.cd-method__divider-v {
+  align-self: stretch;
+  min-height: 20rem;
+  background: rgba(245, 240, 232, 0.1);
+}
+
+.cd-method__col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Huge ghost number — Cormorant 300 at near-invisible opacity */
+.cd-method__num {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-family: var(--cd-display);
+  font-size: 5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--one33-cream);
+  opacity: 0.08;
+}
+
+/* Column title — Cormorant 600 */
+.cd-method__col-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--cd-display);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--one33-cream);
+}
+
+/* 2px rust rule below the column title */
+.cd-method__rule {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  margin-bottom: 1.5rem;
+  background: var(--one33-rust);
+}
+
+.cd-method__col-body {
+  max-width: 38ch;
+  margin: 0 0 2rem;
+  font-family: var(--font-sans);
+  font-size: clamp(0.88rem, 1.35vw, 0.97rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.55);
+}
+
+/* Tag pill */
+.cd-method__tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--one33-rust);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(184, 74, 44, 0.4);
+}
+
+/* Closing line */
+.cd-method__closing {
+  padding-top: 4rem;
+  margin-top: 5rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--one33-cream);
+  text-align: center;
+  border-top: 1px solid rgba(245, 240, 232, 0.08);
+}
+
+/* ── Stories — Image Strip ───────────────────────── */
+.cd-stories {
+  position: relative;
+  padding: 10rem 0;
+  overflow: hidden;
+  background: var(--one33-cream);
+}
+
+.cd-stories__inner {
+  padding: 0 3rem;
+  margin-bottom: 4rem;
+}
+
+/* Cormorant 600 for the stories heading */
+.cd-stories__heading {
+  max-width: 22ch;
+  margin: 0;
+  font-family: var(--cd-display);
+  font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--one33-ink);
+}
+
+.cd-stories__img-row {
+  display: flex;
+  gap: 0.75rem;
+  height: 55vh;
+  min-height: 280px;
+  padding: 0 3rem;
+}
+
+.cd-stories__img {
+  position: relative;
+  overflow: hidden;
+}
+
+.cd-stories__img--1 {
+  flex: 1.4;
+  background: #c5b8a8;
+}
+
+.cd-stories__img--2 {
+  flex: 0.8;
+  background: #a8997f;
+}
+
+.cd-stories__img--3 {
+  flex: 1;
+  background: #baa98f;
+}
+
+/* ── Pull Quote ──────────────────────────────────── */
+.cd-quote {
+  position: relative;
+  padding: 14rem 3rem;
+  background: var(--one33-paper);
+}
+
+.cd-quote__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Cormorant decorative opening mark */
+.cd-quote__mark {
+  display: block;
+  margin-bottom: 2rem;
+  font-family: var(--cd-display);
+  font-size: 8rem;
+  font-weight: 300;
+  line-height: 0.5;
+  color: var(--one33-rust);
+  opacity: 0.3;
+}
+
+/* Cormorant 300 italic — the one major serif display moment */
+.cd-quote__text {
+  max-width: 22ch;
+  margin: 0 0 2.5rem;
+  font-family: var(--cd-display);
+  font-size: clamp(1.8rem, 4vw, 3.8rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #3a342c;
+}
+
+/* Attribution — rust dashes either side */
+.cd-quote__attr {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: rgba(14, 12, 10, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.cd-quote__attr::before,
+.cd-quote__attr::after {
+  display: block;
+  width: 2rem;
+  height: 1px;
+  content: "";
+  background: var(--one33-rust);
+  opacity: 0.5;
+}
+
+/* ── Partner With Us ─────────────────────────────── */
+.cd-partner {
+  position: relative;
+  background: var(--one33-ink);
+}
+
+.cd-partner__inner {
+  max-width: 1200px;
+  padding: 12rem 3rem;
+  margin: 0 auto;
+}
+
+.cd-partner__header {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+}
+
+/* Cormorant 600 for the partner heading */
+.cd-partner__heading {
+  max-width: 16ch;
+  margin: 0;
+  font-family: var(--cd-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--one33-cream);
+}
+
+.cd-partner__sub {
+  max-width: 36ch;
+  padding-bottom: 0.5rem;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.5);
+}
+
+.cd-partner__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+}
+
+/* Partner card — custom article element, not shadcn Card */
+.cd-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem 2.5rem;
+  overflow: hidden;
+  background: var(--cd-ink-mid);
+  border: 1px solid rgba(245, 240, 232, 0.06);
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Rust bottom bar — slides in from left on hover */
+.cd-card::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  content: "";
+  background: var(--one33-rust);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.cd-card:hover {
+  background: var(--cd-ink-light);
+  border-color: rgba(245, 240, 232, 0.12);
+}
+
+.cd-card:hover::after {
+  transform: scaleX(1);
+}
+
+.cd-card__num {
+  margin: 0 0 2.5rem;
+  font-family: var(--cd-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--one33-rust);
+}
+
+/* Card title — Cormorant 600 */
+.cd-card__title {
+  margin: 0 0 1.25rem;
+  font-family: var(--cd-display);
+  font-size: clamp(1.6rem, 2.2vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--one33-cream);
+}
+
+.cd-card__body {
+  flex: 1;
+  margin: 0 0 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(245, 240, 232, 0.45);
+}
+
+.cd-card__action {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--one33-rust);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.cd-card__action::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.cd-card:hover .cd-card__action::after {
+  transform: translateX(4px);
+}
+
+/* ── Documentation Strip ─────────────────────────── */
+.cd-docs {
+  background: var(--one33-cream);
+  border-top: 1px solid var(--one33-paper);
+}
+
+/* AnimateIn passes className down — override on the wrapper */
+.cd-docs__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6rem 3rem;
+}
+
+/* Cormorant 400 (non-italic) — authority without decoration */
+.cd-docs__left {
+  max-width: 30ch;
+  margin: 0;
+  font-family: var(--cd-display);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--one33-ink);
+}
+
+.cd-docs__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cd-pill {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--one33-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border: 1px solid rgba(14, 12, 10, 0.3);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.cd-pill:hover {
+  color: #fff;
+  background: var(--one33-rust);
+  border-color: var(--one33-rust);
+}
+
+/* ── Give ────────────────────────────────────────── */
+.cd-give {
+  position: relative;
+  text-align: center;
+  background: var(--cd-ink-mid);
+}
+
+.cd-give__inner {
+  max-width: 800px;
+  padding: 12rem 3rem;
+  margin: 0 auto;
+}
+
+.cd-give__inner .cd-kicker {
+  display: block;
+}
+
+/* Cormorant 300 — light weight with bold <strong> contrast */
+.cd-give__heading {
+  max-width: 20ch;
+  margin: 0 auto 1.5rem;
+  font-family: var(--cd-display);
+  font-size: clamp(2.5rem, 5.5vw, 6rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--one33-cream);
+}
+
+.cd-give__heading strong {
+  font-weight: 600;
+}
+
+.cd-give__body {
+  max-width: 44ch;
+  margin: 0 auto 4rem;
+  font-family: var(--font-sans);
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(245, 240, 232, 0.5);
+}
+
+.cd-give__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.cd-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--one33-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  background: var(--one33-rust);
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.cd-btn-primary:hover {
+  background: var(--one33-terracotta);
+}
+
+.cd-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(245, 240, 232, 0.2);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cd-btn-ghost:hover {
+  color: var(--one33-cream);
+  border-color: rgba(245, 240, 232, 0.5);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .cd-hero {
+    padding: 0 1.5rem 4rem;
+  }
+
+  .cd-hero__stat {
+    display: none;
+  }
+
+  .cd-statement {
+    padding: 7rem 1.5rem;
+  }
+
+  .cd-statement__aside {
+    position: static;
+    max-width: 100%;
+    margin-top: 3rem;
+  }
+
+  .cd-method__inner {
+    padding: 7rem 1.5rem;
+  }
+
+  .cd-method__grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem 0;
+  }
+
+  .cd-method__divider-v {
+    display: none;
+  }
+
+  .cd-stories {
+    padding: 7rem 0;
+  }
+
+  .cd-stories__inner,
+  .cd-stories__img-row {
+    padding: 0 1.5rem;
+  }
+
+  .cd-stories__img-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    height: auto;
+    min-height: unset;
+  }
+
+  .cd-stories__img {
+    flex: unset !important;
+    height: 30vh;
+  }
+
+  .cd-quote {
+    padding: 8rem 1.5rem;
+  }
+
+  .cd-partner__inner {
+    padding: 8rem 1.5rem;
+  }
+
+  .cd-partner__header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+  }
+
+  .cd-partner__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cd-docs__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4rem 1.5rem;
+  }
+
+  .cd-give__inner {
+    padding: 8rem 1.5rem;
+  }
+
+  .concept-d .nav-cta-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cd-divider {
+    right: 1.5rem;
+    left: 1.5rem;
+  }
+}

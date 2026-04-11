@@ -1,0 +1,554 @@
+/* concept-b.css — Light Confrontational
+   All selectors are prefixed .cb- or scoped under .concept-b
+   to prevent style bleed into other concepts.
+*/
+
+/* ── Concept-scoped token ────────────────────────── */
+.concept-b {
+  --one33-muted: rgba(14, 12, 10, 0.45);
+}
+
+/* ── Section kicker ─────────────────────────────── */
+.cb-kicker {
+  display: block;
+  margin: 0 0 3rem;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--one33-rust, #b84a2c);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ── Hero ────────────────────────────────────────── */
+.cb-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  /* Nav is static — hero fills remaining viewport height */
+  min-height: calc(100dvh - 5rem);
+  overflow: hidden;
+  background: var(--one33-paper, #eae4da);
+}
+
+/* Ghost ONE33 — large low-opacity background texture */
+.cb-hero__ghost {
+  position: absolute;
+  top: 50%;
+  left: -0.04em;
+  z-index: 0;
+  font-size: clamp(20vw, 24vw, 30vw);
+  font-weight: 600;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(14, 12, 10, 0.07);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transform: translateY(-50%);
+  animation: cb-ghost-fadein 1.6s ease forwards 0.4s;
+}
+
+@keyframes cb-ghost-fadein {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Left: typography block */
+.cb-hero__left {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  padding: 6rem 4rem 6rem 3rem;
+}
+
+.cb-hero__kicker {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.cb-hero__kicker-line {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.5px;
+  background: var(--one33-rust, #b84a2c);
+}
+
+.cb-hero__kicker-text {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--one33-muted, rgba(14, 12, 10, 0.45));
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.cb-hero__headline {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(3rem, 5.5vw, 6.5rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--one33-ink, #0e0c0a);
+  letter-spacing: -0.02em;
+}
+
+.cb-hero__serif {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--one33-rust, #b84a2c);
+}
+
+.cb-hero__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+/* Right: photography */
+.cb-hero__right {
+  position: relative;
+  overflow: hidden;
+}
+
+.cb-hero__image-slot {
+  position: absolute;
+  inset: 0;
+}
+
+/* Ken Burns — slow scale, no repeat */
+.cb-hero__image-slot img {
+  animation: cb-kenburns 12s linear forwards;
+}
+
+@keyframes cb-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.cb-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(14, 12, 10, 0.2);
+}
+
+/* ── CTA Buttons ─────────────────────────────────── */
+.cb-btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: auto !important;
+  padding: 0.8rem 1.75rem !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  color: var(--one33-paper, #eae4da) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--one33-ink, #0e0c0a) !important;
+  border: 1.5px solid var(--one33-ink, #0e0c0a) !important;
+  border-radius: 0 !important;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease !important;
+}
+
+.cb-btn-primary:hover {
+  background: #1c1a18 !important;
+}
+
+.cb-btn-outline {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: auto !important;
+  padding: 0.8rem 1.75rem !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  color: var(--one33-ink, #0e0c0a) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent !important;
+  border: 1.5px solid var(--one33-ink, #0e0c0a) !important;
+  border-radius: 0 !important;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease !important;
+}
+
+.cb-btn-outline:hover {
+  background: rgba(14, 12, 10, 0.06) !important;
+}
+
+.cb-btn-rust {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: fit-content;
+  height: auto !important;
+  padding: 0.7rem 1.4rem !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  color: var(--one33-paper, #eae4da) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--one33-rust, #b84a2c) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  transition: background 0.2s ease !important;
+}
+
+.cb-btn-rust:hover {
+  background: #9a3a1e !important;
+}
+
+/* ── Why We Exist ────────────────────────────────── */
+.cb-why {
+  color: var(--one33-ink, #0e0c0a);
+  background: var(--one33-cream, #f5f0e8);
+}
+
+.cb-why__inner {
+  max-width: 760px;
+  padding: 9rem 3rem;
+  margin: 0 auto;
+}
+
+.cb-why__serif-intro {
+  margin: 0 0 3rem;
+  font-size: clamp(1.4rem, 2.6vw, 2.25rem);
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--one33-ink, #0e0c0a);
+  text-align: center;
+}
+
+.cb-why__rule {
+  width: 60%;
+  height: 1px;
+  margin: 0 auto 3.5rem;
+  background: var(--one33-rust, #b84a2c);
+  border: none;
+}
+
+.cb-why__line {
+  margin: 0 0 1.25rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--one33-ink, #0e0c0a);
+}
+
+.cb-why__serif-moment {
+  margin: 1.25rem 0;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(14, 12, 10, 0.85);
+}
+
+.cb-why__closing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 2.5rem;
+}
+
+.cb-why__closing-line {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--one33-ink, #0e0c0a);
+}
+
+.cb-why__psalm {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(14, 12, 10, 0.4);
+}
+
+/* ── What We Do ──────────────────────────────────── */
+.cb-what {
+  color: var(--one33-paper, #eae4da);
+  background: var(--one33-ink, #0e0c0a);
+}
+
+.cb-what__inner {
+  max-width: 1100px;
+  padding: 9rem 3rem;
+  margin: 0 auto;
+}
+
+.cb-what__serif-intro {
+  margin: 0 0 4rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--one33-paper, #eae4da);
+}
+
+/* Stacked horizontal panels separated by rust rules */
+.cb-what__panel {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: 0 3rem;
+  align-items: start;
+  padding: 3rem 0;
+  border-top: 1px solid var(--one33-rust, #b84a2c);
+}
+
+.cb-what__panel-label {
+  align-self: start;
+  padding-top: 0.1em;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--one33-paper, #eae4da);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cb-what__panel-body {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  font-weight: 400;
+  line-height: 1.85;
+  color: rgba(245, 240, 232, 0.75);
+}
+
+.cb-what__panel-detail {
+  align-self: start;
+  max-width: 18ch;
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(245, 240, 232, 0.45);
+  text-align: right;
+}
+
+.cb-what__closing {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+/* Closing line with rust underline */
+.cb-what__closing-line {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--one33-paper, #eae4da);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--one33-rust, #b84a2c);
+  text-underline-offset: 0.3em;
+}
+
+/* ── Partner With Us ─────────────────────────────── */
+.cb-partner {
+  color: var(--one33-ink, #0e0c0a);
+  background: var(--one33-paper, #eae4da);
+}
+
+.cb-partner__inner {
+  max-width: 1000px;
+  padding: 9rem 3rem;
+  margin: 0 auto;
+}
+
+/* Very large opening lines — weight of the sans carries it */
+.cb-partner__opening {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 5rem;
+}
+
+.cb-partner__opening-line {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--one33-ink, #0e0c0a);
+  letter-spacing: -0.01em;
+}
+
+/* Numbered list: 01 / 02 / 03 */
+.cb-partner__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.cb-partner__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 3rem;
+  align-items: start;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--one33-rust, #b84a2c);
+}
+
+.cb-partner__item-num {
+  align-self: start;
+  padding-top: 0.05em;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+  color: rgba(14, 12, 10, 0.12);
+  letter-spacing: -0.02em;
+}
+
+.cb-partner__item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cb-partner__item-label {
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--one33-ink, #0e0c0a);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.cb-partner__item-body {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(14, 12, 10, 0.65);
+}
+
+.cb-partner__item-bank {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: rgba(14, 12, 10, 0.45);
+}
+
+/* ── Stories ─────────────────────────────────────── */
+.cb-stories {
+  color: var(--one33-paper, #eae4da);
+  background: var(--one33-ink, #0e0c0a);
+}
+
+.cb-stories__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  max-width: 900px;
+  padding: 10rem 3rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cb-stories__serif {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--one33-paper, #eae4da);
+}
+
+.cb-stories__note {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgba(245, 240, 232, 0.4);
+}
+
+/* ── Footer: rust top rule override ──────────────── */
+.concept-b .footer-separator {
+  background-color: var(--one33-rust, #b84a2c) !important;
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cb-hero {
+    grid-template-columns: 1fr;
+    padding-top: 5rem;
+  }
+
+  /* Image above, text below on mobile */
+  .cb-hero__right {
+    order: -1;
+    height: 40vh;
+  }
+
+  .cb-hero__left {
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .cb-hero__ghost {
+    display: none;
+  }
+
+  .cb-why__inner,
+  .cb-what__inner,
+  .cb-partner__inner {
+    padding-top: 5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+  }
+
+  .cb-stories__inner {
+    padding-top: 7rem;
+    padding-right: 1.5rem;
+    padding-bottom: 7rem;
+    padding-left: 1.5rem;
+  }
+
+  .cb-what__panel {
+    grid-template-columns: 1fr;
+    gap: 1rem 0;
+  }
+
+  .cb-what__panel-detail {
+    max-width: none;
+    text-align: left;
+  }
+
+  .cb-partner__opening-line {
+    font-size: clamp(1.75rem, 8vw, 3rem);
+  }
+
+  .cb-partner__item {
+    grid-template-columns: 1fr;
+    gap: 1rem 0;
+  }
+
+  .cb-partner__item-num {
+    font-size: 2rem;
+  }
+}
