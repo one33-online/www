@@ -496,7 +496,6 @@
 @media (max-width: 900px) {
   .cb-hero {
     grid-template-columns: 1fr;
-    padding-top: 5rem;
   }
 
   /* Image above, text below on mobile */

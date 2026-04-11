@@ -147,12 +147,10 @@
   align-items: center;
   color: var(--one33-ink, #0e0c0a);
   background: var(--one33-paper, #eae4da);
-  border-bottom: 1px solid var(--one33-rust, #b84a2c);
 }
 
 .nav-root--split-scrolled {
   background: var(--one33-cream, #f5f0e8);
-  border-bottom-color: var(--one33-rust, #b84a2c);
 }
 
 .nav-split-logo {
