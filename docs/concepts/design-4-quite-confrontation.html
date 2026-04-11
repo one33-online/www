@@ -1,92 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ONE33</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE33</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    >
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
 
     :root {
-      --ink:      #0F0D0A;
-      --ink-soft: #1C1A16;
-      --white:    #F5F0E8;
-      --white-d:  #EAE4DA;
-      --white-dd: #DDD6CA;
-      --sage:     #6D8C6B;
-      --sage-d:   #4E6A4D;
-      --sage-l:   #8FAD8D;
-      --sage-pale:#C8D8C7;
-      --mid:      rgba(15,13,10,0.48);
-      --faint:    rgba(15,13,10,0.22);
-      --disp: 'Syne', sans-serif;
-      --body: 'Instrument Serif', Georgia, serif;
+      --ink: #0f0d0a;
+      --ink-soft: #1c1a16;
+      --white: #f5f0e8;
+      --white-d: #eae4da;
+      --white-dd: #ddd6ca;
+      --sage: #6d8c6b;
+      --sage-d: #4e6a4d;
+      --sage-l: #8fad8d;
+      --sage-pale: #c8d8c7;
+      --mid: rgba(15, 13, 10, 0.48);
+      --faint: rgba(15, 13, 10, 0.22);
+      --disp: "Syne", sans-serif;
+      --body: "Instrument Serif", Georgia, serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: var(--body);
-      background: var(--white);
-      color: var(--ink);
       overflow-x: hidden;
+      font-family: var(--body);
+      color: var(--ink);
       cursor: none;
+      background: var(--white);
     }
 
-    ::selection { background: var(--sage); color: #fff; }
+    ::selection {
+      color: #fff;
+      background: var(--sage);
+    }
 
     /* ── Cursor ─────────────────────────────────── */
     #cur {
       position: fixed;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--sage);
-      pointer-events: none;
       z-index: 9000;
-      transform: translate(-50%,-50%);
+      width: 9px;
+      height: 9px;
+      pointer-events: none;
+      background: var(--sage);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
       transition: transform 0.1s linear;
     }
     #curRing {
       position: fixed;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--ink);
-      pointer-events: none;
       z-index: 8999;
-      transform: translate(-50%,-50%);
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
       opacity: 0.35;
-      transition: width .3s ease, height .3s ease, border-color .3s ease, opacity .3s ease;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        border-color 0.3s ease,
+        opacity 0.3s ease;
     }
-    #curRing.h { width: 52px; height: 52px; border-color: var(--sage); opacity: 0.8; }
+    #curRing.h {
+      width: 52px;
+      height: 52px;
+      border-color: var(--sage);
+      opacity: 0.8;
+    }
 
     /* ── Nav ─────────────────────────────────────── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      right: 0;
+      left: 0;
       z-index: 500;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2.5rem;
       height: 4rem;
+      padding: 0 2.5rem;
       mix-blend-mode: normal;
     }
     nav.over-dark .n-logo,
-    nav.over-dark .n-links a { color: rgba(245,240,232,0.7); }
-    nav.over-dark .n-links a:hover { color: #fff; }
-    nav.over-dark .n-give { background: rgba(245,240,232,0.08); color: rgba(245,240,232,0.7); border-color: rgba(245,240,232,0.2); }
-    nav.over-dark .n-give:hover { background: var(--sage); color: #fff; border-color: var(--sage); }
+    nav.over-dark .n-links a {
+      color: rgba(245, 240, 232, 0.7);
+    }
+    nav.over-dark .n-links a:hover {
+      color: #fff;
+    }
+    nav.over-dark .n-give {
+      color: rgba(245, 240, 232, 0.7);
+      background: rgba(245, 240, 232, 0.08);
+      border-color: rgba(245, 240, 232, 0.2);
+    }
+    nav.over-dark .n-give:hover {
+      color: #fff;
+      background: var(--sage);
+      border-color: var(--sage);
+    }
 
     .n-logo {
       font-family: var(--disp);
-      font-weight: 800;
       font-size: 0.9rem;
-      letter-spacing: 0.18em;
+      font-weight: 800;
       color: var(--ink);
+      letter-spacing: 0.18em;
       text-decoration: none;
       cursor: none;
       transition: color 0.3s;
@@ -101,40 +140,49 @@
       font-family: var(--disp);
       font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
       color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
       text-decoration: none;
       cursor: none;
       transition: color 0.2s;
     }
-    .n-links a:hover { color: var(--ink); }
+    .n-links a:hover {
+      color: var(--ink);
+    }
 
     .n-give {
+      padding: 0.45rem 1.1rem;
       font-family: var(--disp);
       font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
       color: var(--ink);
-      border: 1px solid rgba(15,13,10,0.25);
-      padding: 0.45rem 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
       text-decoration: none;
       cursor: none;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      border: 1px solid rgba(15, 13, 10, 0.25);
+      transition:
+        background 0.2s,
+        color 0.2s,
+        border-color 0.2s;
     }
-    .n-give:hover { background: var(--sage); color: #fff; border-color: var(--sage); }
+    .n-give:hover {
+      color: #fff;
+      background: var(--sage);
+      border-color: var(--sage);
+    }
 
     /* ── HERO ────────────────────────────────────── */
     .hero {
-      min-height: 100vh;
-      background: var(--ink);
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      min-height: 100vh;
       padding: 4rem 2.5rem 4rem;
-      position: relative;
       overflow: hidden;
+      background: var(--ink);
     }
 
     /* Ghost 133 fills the void */
@@ -149,59 +197,70 @@
     }
     .hero-ghost span {
       font-family: var(--disp);
-      font-weight: 800;
       font-size: clamp(30vw, 38vw, 44vw);
+      font-weight: 800;
       line-height: 1;
-      letter-spacing: -0.04em;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(109,140,107,0.09);
+      -webkit-text-stroke: 1px rgba(109, 140, 107, 0.09);
+      letter-spacing: -0.04em;
     }
 
     /* Sage dot — the only colour in the hero */
     .hero-dot {
       position: absolute;
-      top: 5rem; right: 2.5rem;
-      width: 8px; height: 8px;
-      border-radius: 50%;
+      top: 5rem;
+      right: 2.5rem;
+      width: 8px;
+      height: 8px;
       background: var(--sage);
+      border-radius: 50%;
       animation: pulse 3s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.5); }
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.4;
+        transform: scale(0.5);
+      }
     }
 
     /* Tag */
     .hero-tag {
+      position: relative;
+      margin-bottom: 2rem;
       font-family: var(--disp);
       font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
       color: var(--sage);
-      margin-bottom: 2rem;
-      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
       opacity: 0;
-      animation: up 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
+      animation: up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
     }
 
     /* Main headline sits at the floor */
     .hero-h {
       position: relative;
       opacity: 0;
-      animation: up 1s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+      animation: up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
     }
     .hero-h-line {
       display: block;
       font-family: var(--disp);
-      font-weight: 800;
       font-size: clamp(3.5rem, 7.5vw, 9rem);
+      font-weight: 800;
       line-height: 0.9;
-      letter-spacing: -0.025em;
-      text-transform: uppercase;
       color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
     }
-    .hero-h-line.sage { color: var(--sage-l); }
+    .hero-h-line.sage {
+      color: var(--sage-l);
+    }
 
     .hero-aside {
       position: absolute;
@@ -210,14 +269,14 @@
       max-width: 26ch;
       text-align: right;
       opacity: 0;
-      animation: up 1s cubic-bezier(0.16,1,0.3,1) 1s forwards;
+      animation: up 1s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
     }
     .hero-aside p {
       font-family: var(--body);
-      font-style: italic;
       font-size: 1rem;
+      font-style: italic;
       line-height: 1.65;
-      color: rgba(245,240,232,0.42);
+      color: rgba(245, 240, 232, 0.42);
     }
     .hero-aside-link {
       display: inline-block;
@@ -225,22 +284,28 @@
       font-family: var(--disp);
       font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
       color: var(--sage-l);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
       text-decoration: none;
       cursor: none;
     }
 
     @keyframes up {
-      from { opacity: 0; transform: translateY(2rem); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(2rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ── Ruled statement ─────────────────────────── */
     .s-statement {
-      background: var(--white);
       padding: 9rem 2.5rem;
+      background: var(--white);
       border-bottom: 1px solid var(--white-dd);
     }
 
@@ -252,40 +317,40 @@
     }
 
     .stmt-label {
+      padding-top: 0.6rem;
       font-family: var(--disp);
       font-size: 0.58rem;
       font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
       color: var(--faint);
-      padding-top: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
       writing-mode: vertical-rl;
       transform: rotate(180deg);
     }
 
     .stmt-text {
+      max-width: 24ch;
       font-family: var(--body);
-      font-style: italic;
       font-size: clamp(1.8rem, 3.5vw, 4rem);
+      font-style: italic;
       line-height: 1.3;
       color: var(--ink);
-      max-width: 24ch;
     }
     .stmt-text strong {
-      font-style: normal;
       font-family: var(--disp);
-      font-weight: 800;
       font-size: 0.85em;
+      font-style: normal;
+      font-weight: 800;
+      color: var(--sage-d);
       text-transform: uppercase;
       letter-spacing: -0.01em;
-      color: var(--sage-d);
     }
 
     .stmt-foot {
-      margin-top: 3.5rem;
       display: flex;
-      align-items: center;
       gap: 1.5rem;
+      align-items: center;
+      margin-top: 3.5rem;
     }
     .stmt-foot-rule {
       flex: 1;
@@ -295,8 +360,8 @@
     .stmt-foot-text {
       font-family: var(--body);
       font-size: 0.9rem;
-      color: var(--mid);
       font-style: italic;
+      color: var(--mid);
     }
 
     /* ── Method TRIPTYCH ─────────────────────────── */
@@ -307,20 +372,22 @@
     }
 
     .trip {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 5rem 2.5rem 4rem;
-      border-right: 1px solid;
-      position: relative;
       overflow: hidden;
+      border-right: 1px solid;
     }
-    .trip:last-child { border-right: none; }
+    .trip:last-child {
+      border-right: none;
+    }
 
     /* Three distinct personalities */
     .trip-1 {
       background: var(--ink);
-      border-color: rgba(245,240,232,0.06);
+      border-color: rgba(245, 240, 232, 0.06);
     }
     .trip-2 {
       background: var(--sage);
@@ -336,102 +403,143 @@
       top: -0.05em;
       left: -0.05em;
       font-family: var(--disp);
-      font-weight: 800;
       font-size: 14rem;
+      font-weight: 800;
       line-height: 1;
       letter-spacing: -0.04em;
       pointer-events: none;
       user-select: none;
     }
-    .trip-1 .trip-ghost { color: rgba(245,240,232,0.04); }
-    .trip-2 .trip-ghost { color: rgba(255,255,255,0.12); }
-    .trip-3 .trip-ghost { color: rgba(15,13,10,0.04); }
+    .trip-1 .trip-ghost {
+      color: rgba(245, 240, 232, 0.04);
+    }
+    .trip-2 .trip-ghost {
+      color: rgba(255, 255, 255, 0.12);
+    }
+    .trip-3 .trip-ghost {
+      color: rgba(15, 13, 10, 0.04);
+    }
 
-    .trip-top {}
+    .trip-top {
+    }
     .trip-num {
+      margin-bottom: 0;
       font-family: var(--disp);
       font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 0;
+      letter-spacing: 0.22em;
     }
-    .trip-1 .trip-num { color: rgba(245,240,232,0.3); }
-    .trip-2 .trip-num { color: rgba(255,255,255,0.55); }
-    .trip-3 .trip-num { color: var(--faint); }
+    .trip-1 .trip-num {
+      color: rgba(245, 240, 232, 0.3);
+    }
+    .trip-2 .trip-num {
+      color: rgba(255, 255, 255, 0.55);
+    }
+    .trip-3 .trip-num {
+      color: var(--faint);
+    }
 
-    .trip-bottom {}
+    .trip-bottom {
+    }
 
     .trip-title {
+      margin-bottom: 1.5rem;
       font-family: var(--disp);
-      font-weight: 800;
       font-size: clamp(2rem, 3vw, 3.2rem);
-      line-height: 1.0;
+      font-weight: 800;
+      line-height: 1;
       text-transform: uppercase;
       letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
     }
-    .trip-1 .trip-title { color: #fff; }
-    .trip-2 .trip-title { color: #fff; }
-    .trip-3 .trip-title { color: var(--ink); }
+    .trip-1 .trip-title {
+      color: #fff;
+    }
+    .trip-2 .trip-title {
+      color: #fff;
+    }
+    .trip-3 .trip-title {
+      color: var(--ink);
+    }
 
     .trip-rule {
       width: 2rem;
       height: 2px;
       margin-bottom: 1.5rem;
     }
-    .trip-1 .trip-rule { background: var(--sage); }
-    .trip-2 .trip-rule { background: rgba(255,255,255,0.5); }
-    .trip-3 .trip-rule { background: var(--sage); }
+    .trip-1 .trip-rule {
+      background: var(--sage);
+    }
+    .trip-2 .trip-rule {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .trip-3 .trip-rule {
+      background: var(--sage);
+    }
 
     .trip-body {
+      margin-bottom: 2rem;
       font-family: var(--body);
       font-size: 0.95rem;
       line-height: 1.8;
-      margin-bottom: 2rem;
     }
-    .trip-1 .trip-body { color: rgba(245,240,232,0.5); }
-    .trip-2 .trip-body { color: rgba(255,255,255,0.75); }
-    .trip-3 .trip-body { color: var(--mid); }
+    .trip-1 .trip-body {
+      color: rgba(245, 240, 232, 0.5);
+    }
+    .trip-2 .trip-body {
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .trip-3 .trip-body {
+      color: var(--mid);
+    }
 
     .trip-tag {
       display: inline-block;
+      padding: 0.35rem 0.75rem;
       font-family: var(--disp);
       font-size: 0.58rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 0.35rem 0.75rem;
+      letter-spacing: 0.18em;
     }
-    .trip-1 .trip-tag { border: 1px solid rgba(245,240,232,0.15); color: rgba(245,240,232,0.3); }
-    .trip-2 .trip-tag { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.55); }
-    .trip-3 .trip-tag { border: 1px solid var(--white-dd); color: var(--faint); }
+    .trip-1 .trip-tag {
+      color: rgba(245, 240, 232, 0.3);
+      border: 1px solid rgba(245, 240, 232, 0.15);
+    }
+    .trip-2 .trip-tag {
+      color: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .trip-3 .trip-tag {
+      color: var(--faint);
+      border: 1px solid var(--white-dd);
+    }
 
     /* ── Body editorial ──────────────────────────── */
     .s-editorial {
-      background: var(--white-d);
       padding: 8rem 2.5rem;
+      background: var(--white-d);
       border-top: 1px solid var(--white-dd);
       border-bottom: 1px solid var(--white-dd);
     }
 
     .ed-label {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 3rem;
       font-family: var(--disp);
       font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
       color: var(--sage);
-      margin-bottom: 3rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
     }
     .ed-label::after {
-      content: '';
       display: block;
       flex: 1;
       height: 1px;
+      content: "";
       background: var(--white-dd);
     }
 
@@ -442,17 +550,18 @@
       align-items: start;
     }
 
-    .ed-main {}
+    .ed-main {
+    }
 
     /* Drop cap */
     .ed-main p:first-of-type::first-letter {
-      font-family: var(--disp);
-      font-weight: 800;
-      font-size: 5.5rem;
-      line-height: 0.7;
       float: left;
-      margin-right: 0.12em;
       margin-top: 0.08em;
+      margin-right: 0.12em;
+      font-family: var(--disp);
+      font-size: 5.5rem;
+      font-weight: 800;
+      line-height: 0.7;
       color: var(--sage-d);
       text-transform: uppercase;
     }
@@ -463,19 +572,22 @@
       line-height: 1.85;
       color: var(--ink);
     }
-    .ed-main p + p { margin-top: 1.25rem; }
+    .ed-main p + p {
+      margin-top: 1.25rem;
+    }
 
-    .ed-aside {}
+    .ed-aside {
+    }
 
     .ed-aside-pull {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
       font-family: var(--body);
-      font-style: italic;
       font-size: 1.4rem;
+      font-style: italic;
       line-height: 1.45;
       color: var(--ink);
       border-left: 3px solid var(--sage);
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
     }
 
     .ed-aside-sub {
@@ -495,53 +607,65 @@
     }
 
     .strip-img {
+      position: relative;
       overflow: hidden;
       cursor: none;
-      position: relative;
     }
     .strip-img-fill {
-      width: 100%; height: 100%;
-      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .strip-img:hover .strip-img-fill { transform: scale(1.05); }
-    .strip-img:nth-child(1) .strip-img-fill { background: #B5A28E; }
-    .strip-img:nth-child(2) .strip-img-fill { background: #91806A; }
-    .strip-img:nth-child(3) .strip-img-fill { background: #4E6A4D; }
-    .strip-img:nth-child(4) .strip-img-fill { background: #A09078; }
+    .strip-img:hover .strip-img-fill {
+      transform: scale(1.05);
+    }
+    .strip-img:nth-child(1) .strip-img-fill {
+      background: #b5a28e;
+    }
+    .strip-img:nth-child(2) .strip-img-fill {
+      background: #91806a;
+    }
+    .strip-img:nth-child(3) .strip-img-fill {
+      background: #4e6a4d;
+    }
+    .strip-img:nth-child(4) .strip-img-fill {
+      background: #a09078;
+    }
 
     .strip-img-label {
       position: absolute;
-      bottom: 1rem; left: 1.25rem;
+      bottom: 1rem;
+      left: 1.25rem;
       font-family: var(--disp);
       font-size: 0.58rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      color: rgba(255, 255, 255, 0.35);
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.18em;
     }
 
     /* ── Quote ───────────────────────────────────── */
     .s-quote {
-      background: var(--ink-soft);
-      padding: 10rem 2.5rem;
       position: relative;
+      padding: 10rem 2.5rem;
       overflow: hidden;
+      background: var(--ink-soft);
     }
 
     .q-ghost {
       position: absolute;
-      right: -0.1em;
       top: 50%;
-      transform: translateY(-50%);
+      right: -0.1em;
       font-family: var(--disp);
-      font-weight: 800;
       font-size: 45vw;
+      font-weight: 800;
       line-height: 1;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(109,140,107,0.05);
+      -webkit-text-stroke: 1px rgba(109, 140, 107, 0.05);
       letter-spacing: -0.04em;
       pointer-events: none;
       user-select: none;
+      transform: translateY(-50%);
     }
 
     .q-content {
@@ -550,22 +674,22 @@
     }
 
     .q-opener {
+      margin-bottom: 1.5rem;
       font-family: var(--body);
-      font-style: italic;
       font-size: 4.5rem;
+      font-style: italic;
       line-height: 0.8;
       color: var(--sage);
       opacity: 0.35;
-      margin-bottom: 1.5rem;
     }
 
     .q-text {
+      margin-bottom: 2.5rem;
       font-family: var(--body);
-      font-style: italic;
       font-size: clamp(1.6rem, 3vw, 3rem);
+      font-style: italic;
       line-height: 1.35;
       color: #fff;
-      margin-bottom: 2.5rem;
     }
     .q-text em {
       font-style: normal;
@@ -574,51 +698,55 @@
 
     .q-by {
       display: flex;
-      align-items: center;
       gap: 1rem;
+      align-items: center;
     }
-    .q-by-line { width: 2rem; height: 1px; background: var(--sage); }
+    .q-by-line {
+      width: 2rem;
+      height: 1px;
+      background: var(--sage);
+    }
     .q-by-text {
       font-family: var(--disp);
       font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      color: rgba(245, 240, 232, 0.3);
       text-transform: uppercase;
-      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.2em;
     }
 
     /* ── Partner — numbered list ─────────────────── */
     .s-partner {
-      background: var(--white);
       padding: 8rem 2.5rem;
+      background: var(--white);
     }
 
     .partner-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
-      margin-bottom: 6rem;
       padding-bottom: 4rem;
+      margin-bottom: 6rem;
       border-bottom: 1px solid var(--white-dd);
     }
 
     .partner-h {
       font-family: var(--disp);
-      font-weight: 800;
       font-size: clamp(2.8rem, 5.5vw, 6.5rem);
+      font-weight: 800;
       line-height: 0.92;
+      color: var(--ink);
       text-transform: uppercase;
       letter-spacing: -0.02em;
-      color: var(--ink);
     }
 
     .partner-p {
+      align-self: end;
       font-family: var(--body);
       font-size: 1.05rem;
       font-style: italic;
       line-height: 1.75;
       color: var(--mid);
-      align-self: end;
     }
 
     /* List-style partner items */
@@ -631,212 +759,244 @@
     .p-item {
       display: grid;
       grid-template-columns: 80px 1fr auto;
-      align-items: center;
       gap: 3rem;
+      align-items: center;
       padding: 2.5rem 0;
-      border-bottom: 1px solid var(--white-dd);
-      cursor: none;
-      transition: background 0.2s;
-      margin: 0 -2.5rem;
-      padding-left: 2.5rem;
       padding-right: 2.5rem;
+      padding-left: 2.5rem;
+      margin: 0 -2.5rem;
+      cursor: none;
+      border-bottom: 1px solid var(--white-dd);
+      transition: background 0.2s;
     }
-    .p-item:first-child { border-top: 1px solid var(--white-dd); }
-    .p-item:hover { background: var(--white-d); }
+    .p-item:first-child {
+      border-top: 1px solid var(--white-dd);
+    }
+    .p-item:hover {
+      background: var(--white-d);
+    }
 
     .p-num {
       font-family: var(--disp);
-      font-weight: 800;
       font-size: 2.5rem;
-      color: var(--sage-pale);
+      font-weight: 800;
       line-height: 1;
+      color: var(--sage-pale);
       letter-spacing: -0.03em;
     }
 
-    .p-mid {}
+    .p-mid {
+    }
     .p-title {
+      margin-bottom: 0.35rem;
       font-family: var(--disp);
-      font-weight: 700;
       font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
       text-transform: uppercase;
       letter-spacing: 0.02em;
-      color: var(--ink);
-      margin-bottom: 0.35rem;
     }
     .p-desc {
       font-family: var(--body);
       font-size: 0.9rem;
-      color: var(--mid);
       font-style: italic;
+      color: var(--mid);
     }
 
     .p-action {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
       font-family: var(--disp);
       font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
       color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
       text-decoration: none;
       cursor: none;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
       transition: gap 0.2s;
     }
-    .p-item:hover .p-action { gap: 0.85rem; }
-    .p-action::after { content: '→'; }
+    .p-item:hover .p-action {
+      gap: 0.85rem;
+    }
+    .p-action::after {
+      content: "→";
+    }
 
     /* ── Legal bar ────────────────────────────────── */
     .s-legal {
-      background: var(--sage);
-      padding: 3rem 2.5rem;
       display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
+      padding: 3rem 2.5rem;
+      background: var(--sage);
     }
 
     .legal-text {
-      font-family: var(--body);
-      font-style: italic;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.75);
       max-width: 50ch;
+      font-family: var(--body);
+      font-size: 0.95rem;
+      font-style: italic;
       line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
     }
 
     .legal-pills {
-      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
     .legal-pill {
+      padding: 0.4rem 0.8rem;
       font-family: var(--disp);
       font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.65);
       text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.65);
-      padding: 0.4rem 0.8rem;
+      letter-spacing: 0.14em;
       text-decoration: none;
       cursor: none;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition:
+        background 0.2s,
+        color 0.2s,
+        border-color 0.2s;
     }
-    .legal-pill:hover { background: #fff; color: var(--sage-d); border-color: #fff; }
+    .legal-pill:hover {
+      color: var(--sage-d);
+      background: #fff;
+      border-color: #fff;
+    }
 
     /* ── Give — meditative ───────────────────────── */
     .s-give {
-      background: var(--ink);
-      padding: 12rem 2.5rem;
-      text-align: center;
       position: relative;
+      padding: 12rem 2.5rem;
       overflow: hidden;
+      text-align: center;
+      background: var(--ink);
     }
 
     .give-ghost {
       position: absolute;
       bottom: -0.15em;
       left: 50%;
-      transform: translateX(-50%);
       font-family: var(--disp);
-      font-weight: 800;
       font-size: 28vw;
+      font-weight: 800;
       line-height: 1;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(109,140,107,0.06);
+      -webkit-text-stroke: 1px rgba(109, 140, 107, 0.06);
       letter-spacing: -0.04em;
       white-space: nowrap;
       pointer-events: none;
+      transform: translateX(-50%);
     }
 
-    .give-inner { position: relative; }
+    .give-inner {
+      position: relative;
+    }
 
     .give-label {
+      display: block;
+      margin-bottom: 2rem;
       font-family: var(--disp);
       font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
       color: var(--sage);
-      margin-bottom: 2rem;
-      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
     }
 
     .give-h {
-      font-family: var(--body);
-      font-style: italic;
-      font-size: clamp(2.2rem, 5vw, 5.5rem);
-      line-height: 1.2;
-      color: #fff;
       max-width: 22ch;
       margin: 0 auto 3rem;
+      font-family: var(--body);
+      font-size: clamp(2.2rem, 5vw, 5.5rem);
+      font-style: italic;
+      line-height: 1.2;
+      color: #fff;
     }
     .give-h strong {
-      font-style: normal;
       font-family: var(--disp);
-      font-weight: 800;
       font-size: 0.85em;
+      font-style: normal;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: -0.01em;
     }
 
-    .give-rule { width: 2rem; height: 1.5px; background: var(--sage); margin: 0 auto 3rem; }
+    .give-rule {
+      width: 2rem;
+      height: 1.5px;
+      margin: 0 auto 3rem;
+      background: var(--sage);
+    }
 
     .give-body {
+      max-width: 42ch;
+      margin: 0 auto 3.5rem;
       font-family: var(--body);
       font-size: 1rem;
       line-height: 1.8;
-      color: rgba(245,240,232,0.45);
-      max-width: 42ch;
-      margin: 0 auto 3.5rem;
+      color: rgba(245, 240, 232, 0.45);
     }
 
     .give-btns {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.75rem;
       justify-content: center;
-      flex-wrap: wrap;
     }
 
     .btn-sage {
+      display: inline-block;
+      padding: 0.9rem 2rem;
       font-family: var(--disp);
       font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--sage);
       color: #fff;
-      padding: 0.9rem 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       text-decoration: none;
       cursor: none;
+      background: var(--sage);
       transition: background 0.2s;
-      display: inline-block;
     }
-    .btn-sage:hover { background: var(--sage-d); }
+    .btn-sage:hover {
+      background: var(--sage-d);
+    }
 
     .btn-ghost-light {
+      display: inline-block;
+      padding: 0.9rem 2rem;
       font-family: var(--disp);
       font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      color: rgba(245, 240, 232, 0.5);
       text-transform: uppercase;
-      background: transparent;
-      color: rgba(245,240,232,0.5);
-      border: 1px solid rgba(245,240,232,0.18);
-      padding: 0.9rem 2rem;
+      letter-spacing: 0.14em;
       text-decoration: none;
       cursor: none;
-      transition: color 0.2s, border-color 0.2s;
-      display: inline-block;
+      background: transparent;
+      border: 1px solid rgba(245, 240, 232, 0.18);
+      transition:
+        color 0.2s,
+        border-color 0.2s;
     }
-    .btn-ghost-light:hover { color: #fff; border-color: rgba(245,240,232,0.5); }
+    .btn-ghost-light:hover {
+      color: #fff;
+      border-color: rgba(245, 240, 232, 0.5);
+    }
 
     /* ── Footer ──────────────────────────────────── */
     footer {
-      background: var(--white-d);
       padding: 5rem 2.5rem 3rem;
+      background: var(--white-d);
       border-top: 1px solid var(--white-dd);
     }
 
@@ -849,39 +1009,45 @@
       border-bottom: 1px solid var(--white-dd);
     }
 
-    .ft-brand {}
+    .ft-brand {
+    }
     .ft-mark {
       display: block;
-      font-family: var(--disp);
-      font-weight: 800;
-      font-size: 2.5rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--ink);
       margin-bottom: 0.75rem;
+      font-family: var(--disp);
+      font-size: 2.5rem;
+      font-weight: 800;
       line-height: 1;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .ft-strapline {
       font-family: var(--body);
-      font-style: italic;
       font-size: 0.95rem;
-      color: var(--mid);
+      font-style: italic;
       line-height: 1.5;
+      color: var(--mid);
     }
 
-    .ft-col {}
+    .ft-col {
+    }
     .ft-col-h {
+      display: block;
+      margin-bottom: 1.5rem;
       font-family: var(--disp);
       font-size: 0.58rem;
       font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
       color: var(--faint);
-      margin-bottom: 1.5rem;
-      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
     }
-    .ft-col ul { list-style: none; }
-    .ft-col li { margin-bottom: 0.55rem; }
+    .ft-col ul {
+      list-style: none;
+    }
+    .ft-col li {
+      margin-bottom: 0.55rem;
+    }
     .ft-col a {
       font-family: var(--body);
       font-size: 0.95rem;
@@ -890,25 +1056,27 @@
       cursor: none;
       transition: color 0.2s;
     }
-    .ft-col a:hover { color: var(--ink); }
+    .ft-col a:hover {
+      color: var(--ink);
+    }
 
     .ft-bottom {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
     .ft-legal {
       font-family: var(--disp);
       font-size: 0.58rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
       color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
     }
     .ft-domain {
       font-family: var(--body);
-      font-style: italic;
       font-size: 0.9rem;
+      font-style: italic;
       color: var(--faint);
     }
 
@@ -916,365 +1084,490 @@
     [data-r] {
       opacity: 0;
       transform: translateY(1.5rem);
-      transition: opacity 1.1s cubic-bezier(0.16,1,0.3,1),
-                  transform 1.1s cubic-bezier(0.16,1,0.3,1);
+      transition:
+        opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    [data-r].in { opacity: 1; transform: translateY(0); }
-    [data-d="1"] { transition-delay: 0.12s; }
-    [data-d="2"] { transition-delay: 0.26s; }
-    [data-d="3"] { transition-delay: 0.42s; }
+    [data-r].in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-d="1"] {
+      transition-delay: 0.12s;
+    }
+    [data-d="2"] {
+      transition-delay: 0.26s;
+    }
+    [data-d="3"] {
+      transition-delay: 0.42s;
+    }
 
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 0 1.25rem; }
-      .n-links { display: none; }
-      .hero { padding: 4rem 1.25rem 3rem; }
-      .hero-aside { position: static; text-align: left; margin-top: 2rem; }
-      .s-statement { padding: 6rem 1.25rem; }
-      .stmt-inner { grid-template-columns: 1fr; gap: 1rem; }
-      .stmt-label { writing-mode: horizontal-tb; transform: none; }
-      .s-triptych { grid-template-columns: 1fr; min-height: auto; }
-      .trip { min-height: 60vh; border-right: none; border-bottom: 1px solid; }
-      .trip:last-child { border-bottom: none; }
-      .s-editorial { padding: 5rem 1.25rem; }
-      .ed-cols { grid-template-columns: 1fr; gap: 3rem; }
-      .s-strip { grid-template-columns: 1fr 1fr; height: auto; }
-      .strip-img { height: 35vw; }
-      .s-quote { padding: 6rem 1.25rem; }
-      .s-partner { padding: 5rem 1.25rem; }
-      .partner-top { grid-template-columns: 1fr; gap: 2rem; }
-      .p-item { grid-template-columns: 50px 1fr; gap: 1.5rem; margin: 0; padding-left: 0; padding-right: 0; }
-      .p-action { display: none; }
-      .s-legal { padding: 2.5rem 1.25rem; }
-      .s-give { padding: 8rem 1.25rem; }
-      footer { padding: 4rem 1.25rem 2rem; }
-      .ft { grid-template-columns: 1fr; gap: 2.5rem; }
+      nav {
+        padding: 0 1.25rem;
+      }
+      .n-links {
+        display: none;
+      }
+      .hero {
+        padding: 4rem 1.25rem 3rem;
+      }
+      .hero-aside {
+        position: static;
+        margin-top: 2rem;
+        text-align: left;
+      }
+      .s-statement {
+        padding: 6rem 1.25rem;
+      }
+      .stmt-inner {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .stmt-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+      }
+      .s-triptych {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .trip {
+        min-height: 60vh;
+        border-right: none;
+        border-bottom: 1px solid;
+      }
+      .trip:last-child {
+        border-bottom: none;
+      }
+      .s-editorial {
+        padding: 5rem 1.25rem;
+      }
+      .ed-cols {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .s-strip {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+      }
+      .strip-img {
+        height: 35vw;
+      }
+      .s-quote {
+        padding: 6rem 1.25rem;
+      }
+      .s-partner {
+        padding: 5rem 1.25rem;
+      }
+      .partner-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .p-item {
+        grid-template-columns: 50px 1fr;
+        gap: 1.5rem;
+        padding-right: 0;
+        padding-left: 0;
+        margin: 0;
+      }
+      .p-action {
+        display: none;
+      }
+      .s-legal {
+        padding: 2.5rem 1.25rem;
+      }
+      .s-give {
+        padding: 8rem 1.25rem;
+      }
+      footer {
+        padding: 4rem 1.25rem 2rem;
+      }
+      .ft {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
     }
-  </style>
-</head>
-<body>
+    </style>
+  </head>
+  <body>
+    <div id="cur"></div>
+    <div id="curRing"></div>
 
-  <div id="cur"></div>
-  <div id="curRing"></div>
+    <!-- Nav -->
+    <nav id="nav">
+      <a href="#" class="n-logo">ONE33</a>
+      <ul class="n-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#partner">Partner</a></li>
+      </ul>
+      <a href="#give" class="n-give">Give</a>
+    </nav>
 
-  <!-- Nav -->
-  <nav id="nav">
-    <a href="#" class="n-logo">ONE33</a>
-    <ul class="n-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#method">Method</a></li>
-      <li><a href="#partner">Partner</a></li>
-    </ul>
-    <a href="#give" class="n-give">Give</a>
-  </nav>
+    <!-- ── HERO: Emptiness, then the statement ── -->
+    <section class="hero">
+      <div class="hero-ghost" aria-hidden="true"><span>133</span></div>
+      <div class="hero-dot" aria-hidden="true"></div>
 
-  <!-- ── HERO: Emptiness, then the statement ── -->
-  <section class="hero">
-    <div class="hero-ghost" aria-hidden="true"><span>133</span></div>
-    <div class="hero-dot" aria-hidden="true"></div>
+      <span class="hero-tag">South Africa — Present Tense</span>
 
-    <span class="hero-tag">South Africa — Present Tense</span>
+      <h1 class="hero-h" id="about">
+        <span class="hero-h-line">DIVIDED</span>
+        <span class="hero-h-line">COMMUNITIES</span>
+        <span class="hero-h-line sage">DESERVE</span>
+        <span class="hero-h-line sage">MORE.</span>
+      </h1>
 
-    <h1 class="hero-h" id="about">
-      <span class="hero-h-line">DIVIDED</span>
-      <span class="hero-h-line">COMMUNITIES</span>
-      <span class="hero-h-line sage">DESERVE</span>
-      <span class="hero-h-line sage">MORE.</span>
-    </h1>
-
-    <div class="hero-aside">
-      <p>South Africa's divisions are not relics. They are the texture of ordinary life, right now. One33 works inside that reality.</p>
-      <a href="#about" class="hero-aside-link">Learn how ↓</a>
-    </div>
-  </section>
-
-  <!-- ── Statement ── -->
-  <section class="s-statement">
-    <div class="stmt-inner">
-      <span class="stmt-label">Why One33</span>
-      <div>
-        <p class="stmt-text" data-r>
-          Most organisations arrive<br>
-          knowing what they'll offer.<br>
-          One33 arrives asking<br>
-          <strong>what has been lost.</strong>
-        </p>
-        <div class="stmt-foot" data-r data-d="1">
-          <div class="stmt-foot-rule"></div>
-          <span class="stmt-foot-text">The divide is present. So is the work.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Method triptych ── -->
-  <section class="s-triptych" id="method">
-
-    <div class="trip trip-1" data-r>
-      <div class="trip-ghost" aria-hidden="true">01</div>
-      <div class="trip-top">
-        <span class="trip-num">01 — Relational</span>
-      </div>
-      <div class="trip-bottom">
-        <h2 class="trip-title">Sitting with what is broken.</h2>
-        <div class="trip-rule"></div>
-        <p class="trip-body">
-          One33 facilitates dialogue within and between communities divided by race, class, culture, and generation. This is direct work — sustained, present, and unhurried. We stay until trust is real.
-        </p>
-        <span class="trip-tag">Direct Facilitation</span>
-      </div>
-    </div>
-
-    <div class="trip trip-2" data-r data-d="1">
-      <div class="trip-ghost" aria-hidden="true">02</div>
-      <div class="trip-top">
-        <span class="trip-num">02 — Practical</span>
-      </div>
-      <div class="trip-bottom">
-        <h2 class="trip-title">Connecting what restores.</h2>
-        <div class="trip-rule"></div>
-        <p class="trip-body">
-          One33 identifies what communities have lost, then connects organisations, government, and skill sets that can restore it. We do not build — we broker the relationships that do.
-        </p>
-        <span class="trip-tag">Connector · Facilitator</span>
-      </div>
-    </div>
-
-    <div class="trip trip-3" data-r data-d="2">
-      <div class="trip-ghost" aria-hidden="true">03</div>
-      <div class="trip-top">
-        <span class="trip-num">03 — Distinct</span>
-      </div>
-      <div class="trip-bottom">
-        <h2 class="trip-title">Asking before acting.</h2>
-        <div class="trip-rule"></div>
-        <p class="trip-body">
-          We reverse-engineer the need. Not: here is what we can do. But: what have you lost, and what would it take to restore it? The difference between these two questions changes everything.
-        </p>
-        <span class="trip-tag">Community-led</span>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ── Editorial body ── -->
-  <section class="s-editorial">
-    <div class="ed-label" data-r>The South African Story</div>
-    <div class="ed-cols">
-      <div class="ed-main" data-r data-d="1">
+      <div class="hero-aside">
         <p>
-          Reconciliation in South Africa is not a historical event that was resolved at a particular moment. It is an ongoing demand that the present makes on everyone who lives here — regardless of when they arrived or what they inherited. The divisions that run through communities now are not echoes. They are structural, immediate, and felt.
+          South Africa's divisions are not relics. They are the texture of
+          ordinary life, right now. One33 works inside that reality.
         </p>
-        <p>
-          One33 exists inside that reality. Not as an outside interpreter, and not as a prescriber of solutions. As a presence that asks, listens, and then connects the people and resources that can do the restorative work.
-        </p>
-        <p>
-          The organisation works across three sectors — public, private, and social — identifying partners who are context-specific rather than generic. Some will recur. Others will be brought in for a particular need, then step back. This is not inefficiency. It is fidelity to what communities actually require.
-        </p>
+        <a href="#about" class="hero-aside-link">Learn how ↓</a>
       </div>
-      <div class="ed-aside" data-r data-d="2">
-        <p class="ed-aside-pull">
-          "The need is not to be named. It is to be heard."
-        </p>
-        <p class="ed-aside-sub">
-          Twenty-plus years of restorative justice work in South Africa has made one thing clear: the communities that benefit most are those that were asked first, not told. One33 is built around that single conviction.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── Image strip ── -->
-  <section class="s-strip" aria-label="Image section">
-    <div class="strip-img">
-      <div class="strip-img-fill"></div>
-      <span class="strip-img-label">Community</span>
-    </div>
-    <div class="strip-img">
-      <div class="strip-img-fill"></div>
-      <span class="strip-img-label">Dialogue</span>
-    </div>
-    <div class="strip-img">
-      <div class="strip-img-fill"></div>
-      <span class="strip-img-label">Presence</span>
-    </div>
-    <div class="strip-img">
-      <div class="strip-img-fill"></div>
-      <span class="strip-img-label">Restoration</span>
-    </div>
-  </section>
-
-  <!-- ── Quote ── -->
-  <section class="s-quote">
-    <div class="q-ghost" aria-hidden="true">"</div>
-    <div class="q-content">
-      <div class="q-opener" aria-hidden="true">"</div>
-      <p class="q-text" data-r>
-        It is not okay to say we are not living<br>
-        under an unjust government <em>anymore.</em><br>
-        The work of restoration has barely begun.
-      </p>
-      <div class="q-by" data-r data-d="1">
-        <div class="q-by-line"></div>
-        <span class="q-by-text">The ONE33 Foundation</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Partner — numbered list ── -->
-  <section class="s-partner" id="partner">
-    <div class="partner-top">
-      <h2 class="partner-h" data-r>
-        Your place<br>
-        in this.
-      </h2>
-      <p class="partner-p" data-r data-d="1">
-        The divide is present. So is the opportunity to be part of closing it. There are three ways to engage — each meaningful, each needed.
-      </p>
-    </div>
-
-    <div class="partner-list">
-      <div class="p-item" data-r>
-        <span class="p-num">01</span>
-        <div class="p-mid">
-          <p class="p-title">Give Financially</p>
-          <p class="p-desc">Fund ongoing presence, not one-off solutions. Section 18A deductible.</p>
+    <!-- ── Statement ── -->
+    <section class="s-statement">
+      <div class="stmt-inner">
+        <span class="stmt-label">Why One33</span>
+        <div>
+          <p class="stmt-text" data-r>
+            Most organisations arrive<br>
+            knowing what they'll offer.<br>
+            One33 arrives asking<br>
+            <strong>what has been lost.</strong>
+          </p>
+          <div class="stmt-foot" data-r data-d="1">
+            <div class="stmt-foot-rule"></div>
+            <span class="stmt-foot-text"
+              >The divide is present. So is the work.</span
+            >
+          </div>
         </div>
-        <a href="#give" class="p-action">Donate</a>
       </div>
-      <div class="p-item" data-r data-d="1">
-        <span class="p-num">02</span>
-        <div class="p-mid">
-          <p class="p-title">Offer Your Skills</p>
-          <p class="p-desc">Legal, medical, trade, entrepreneurial — if you carry a skill, there is likely a place for it.</p>
-        </div>
-        <a href="#contact" class="p-action">Connect</a>
-      </div>
-      <div class="p-item" data-r data-d="2">
-        <span class="p-num">03</span>
-        <div class="p-mid">
-          <p class="p-title">Open Your Relationships</p>
-          <p class="p-desc">Access to networks and decision-makers is a resource. One33 connects the willing with the needed.</p>
-        </div>
-        <a href="#contact" class="p-action">Partner</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── Legal ── -->
-  <section class="s-legal" id="contact">
-    <p class="legal-text">One33 is a registered South African NPO, PBO, and Section 18A approved organisation. All documentation is in order and available to download.</p>
-    <div class="legal-pills">
-      <a href="#" class="legal-pill">NPO Certificate</a>
-      <a href="#" class="legal-pill">PBO Certificate</a>
-      <a href="#" class="legal-pill">Section 18A</a>
-    </div>
-  </section>
+    <!-- ── Method triptych ── -->
+    <section class="s-triptych" id="method">
+      <div class="trip trip-1" data-r>
+        <div class="trip-ghost" aria-hidden="true">01</div>
+        <div class="trip-top">
+          <span class="trip-num">01 — Relational</span>
+        </div>
+        <div class="trip-bottom">
+          <h2 class="trip-title">Sitting with what is broken.</h2>
+          <div class="trip-rule"></div>
+          <p class="trip-body">
+            One33 facilitates dialogue within and between communities divided by
+            race, class, culture, and generation. This is direct work —
+            sustained, present, and unhurried. We stay until trust is real.
+          </p>
+          <span class="trip-tag">Direct Facilitation</span>
+        </div>
+      </div>
 
-  <!-- ── Give ── -->
-  <section class="s-give" id="give">
-    <div class="give-ghost" aria-hidden="true">ONE33</div>
-    <div class="give-inner">
-      <span class="give-label" data-r>Give</span>
-      <h2 class="give-h" data-r data-d="1">
-        If you believe this matters,<br>
-        <strong>this is how it moves.</strong>
-      </h2>
-      <div class="give-rule" data-r data-d="2"></div>
-      <p class="give-body" data-r data-d="3">
-        Donate via Zapper or direct bank transfer. All contributions are Section 18A tax deductible. Your giving funds sustained presence in community — not overhead.
+      <div class="trip trip-2" data-r data-d="1">
+        <div class="trip-ghost" aria-hidden="true">02</div>
+        <div class="trip-top"><span class="trip-num">02 — Practical</span></div>
+        <div class="trip-bottom">
+          <h2 class="trip-title">Connecting what restores.</h2>
+          <div class="trip-rule"></div>
+          <p class="trip-body">
+            One33 identifies what communities have lost, then connects
+            organisations, government, and skill sets that can restore it. We do
+            not build — we broker the relationships that do.
+          </p>
+          <span class="trip-tag">Connector · Facilitator</span>
+        </div>
+      </div>
+
+      <div class="trip trip-3" data-r data-d="2">
+        <div class="trip-ghost" aria-hidden="true">03</div>
+        <div class="trip-top"><span class="trip-num">03 — Distinct</span></div>
+        <div class="trip-bottom">
+          <h2 class="trip-title">Asking before acting.</h2>
+          <div class="trip-rule"></div>
+          <p class="trip-body">
+            We reverse-engineer the need. Not: here is what we can do. But: what
+            have you lost, and what would it take to restore it? The difference
+            between these two questions changes everything.
+          </p>
+          <span class="trip-tag">Community-led</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Editorial body ── -->
+    <section class="s-editorial">
+      <div class="ed-label" data-r>The South African Story</div>
+      <div class="ed-cols">
+        <div class="ed-main" data-r data-d="1">
+          <p>
+            Reconciliation in South Africa is not a historical event that was
+            resolved at a particular moment. It is an ongoing demand that the
+            present makes on everyone who lives here — regardless of when they
+            arrived or what they inherited. The divisions that run through
+            communities now are not echoes. They are structural, immediate, and
+            felt.
+          </p>
+          <p>
+            One33 exists inside that reality. Not as an outside interpreter, and
+            not as a prescriber of solutions. As a presence that asks, listens,
+            and then connects the people and resources that can do the
+            restorative work.
+          </p>
+          <p>
+            The organisation works across three sectors — public, private, and
+            social — identifying partners who are context-specific rather than
+            generic. Some will recur. Others will be brought in for a particular
+            need, then step back. This is not inefficiency. It is fidelity to
+            what communities actually require.
+          </p>
+        </div>
+        <div class="ed-aside" data-r data-d="2">
+          <p class="ed-aside-pull">
+            "The need is not to be named. It is to be heard."
+          </p>
+          <p class="ed-aside-sub">
+            Twenty-plus years of restorative justice work in South Africa has
+            made one thing clear: the communities that benefit most are those
+            that were asked first, not told. One33 is built around that single
+            conviction.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Image strip ── -->
+    <section class="s-strip" aria-label="Image section">
+      <div class="strip-img">
+        <div class="strip-img-fill"></div>
+        <span class="strip-img-label">Community</span>
+      </div>
+      <div class="strip-img">
+        <div class="strip-img-fill"></div>
+        <span class="strip-img-label">Dialogue</span>
+      </div>
+      <div class="strip-img">
+        <div class="strip-img-fill"></div>
+        <span class="strip-img-label">Presence</span>
+      </div>
+      <div class="strip-img">
+        <div class="strip-img-fill"></div>
+        <span class="strip-img-label">Restoration</span>
+      </div>
+    </section>
+
+    <!-- ── Quote ── -->
+    <section class="s-quote">
+      <div class="q-ghost" aria-hidden="true">"</div>
+      <div class="q-content">
+        <div class="q-opener" aria-hidden="true">"</div>
+        <p class="q-text" data-r>
+          It is not okay to say we are not living<br>
+          under an unjust government <em>anymore.</em><br>
+          The work of restoration has barely begun.
+        </p>
+        <div class="q-by" data-r data-d="1">
+          <div class="q-by-line"></div>
+          <span class="q-by-text">The ONE33 Foundation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Partner — numbered list ── -->
+    <section class="s-partner" id="partner">
+      <div class="partner-top">
+        <h2 class="partner-h" data-r>
+          Your place<br>
+          in this.
+        </h2>
+        <p class="partner-p" data-r data-d="1">
+          The divide is present. So is the opportunity to be part of closing it.
+          There are three ways to engage — each meaningful, each needed.
+        </p>
+      </div>
+
+      <div class="partner-list">
+        <div class="p-item" data-r>
+          <span class="p-num">01</span>
+          <div class="p-mid">
+            <p class="p-title">Give Financially</p>
+            <p class="p-desc">
+              Fund ongoing presence, not one-off solutions. Section 18A
+              deductible.
+            </p>
+          </div>
+          <a href="#give" class="p-action">Donate</a>
+        </div>
+        <div class="p-item" data-r data-d="1">
+          <span class="p-num">02</span>
+          <div class="p-mid">
+            <p class="p-title">Offer Your Skills</p>
+            <p class="p-desc">
+              Legal, medical, trade, entrepreneurial — if you carry a skill,
+              there is likely a place for it.
+            </p>
+          </div>
+          <a href="#contact" class="p-action">Connect</a>
+        </div>
+        <div class="p-item" data-r data-d="2">
+          <span class="p-num">03</span>
+          <div class="p-mid">
+            <p class="p-title">Open Your Relationships</p>
+            <p class="p-desc">
+              Access to networks and decision-makers is a resource. One33
+              connects the willing with the needed.
+            </p>
+          </div>
+          <a href="#contact" class="p-action">Partner</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Legal ── -->
+    <section class="s-legal" id="contact">
+      <p class="legal-text">
+        One33 is a registered South African NPO, PBO, and Section 18A approved
+        organisation. All documentation is in order and available to download.
       </p>
-      <div class="give-btns" data-r data-d="3">
-        <a href="#" class="btn-sage">Donate via Zapper</a>
-        <a href="#" class="btn-ghost-light">Bank Transfer Details</a>
-        <a href="#" class="btn-ghost-light">Get in Touch</a>
+      <div class="legal-pills">
+        <a href="#" class="legal-pill">NPO Certificate</a>
+        <a href="#" class="legal-pill">PBO Certificate</a>
+        <a href="#" class="legal-pill">Section 18A</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="ft">
-      <div class="ft-brand">
-        <span class="ft-mark">ONE33</span>
-        <p class="ft-strapline">Building South Africa<br>toward reconciliation.</p>
+    <!-- ── Give ── -->
+    <section class="s-give" id="give">
+      <div class="give-ghost" aria-hidden="true">ONE33</div>
+      <div class="give-inner">
+        <span class="give-label" data-r>Give</span>
+        <h2 class="give-h" data-r data-d="1">
+          If you believe this matters,<br>
+          <strong>this is how it moves.</strong>
+        </h2>
+        <div class="give-rule" data-r data-d="2"></div>
+        <p class="give-body" data-r data-d="3">
+          Donate via Zapper or direct bank transfer. All contributions are
+          Section 18A tax deductible. Your giving funds sustained presence in
+          community — not overhead.
+        </p>
+        <div class="give-btns" data-r data-d="3">
+          <a href="#" class="btn-sage">Donate via Zapper</a>
+          <a href="#" class="btn-ghost-light">Bank Transfer Details</a>
+          <a href="#" class="btn-ghost-light">Get in Touch</a>
+        </div>
       </div>
-      <div class="ft-col">
-        <span class="ft-col-h">Organisation</span>
-        <ul>
-          <li><a href="#">Mission</a></li>
-          <li><a href="#">Method</a></li>
-          <li><a href="#">Governance</a></li>
-          <li><a href="#">Stories</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <span class="ft-col-h">Contact</span>
-        <ul>
-          <li><a href="#">Give</a></li>
-          <li><a href="#">Volunteer Skills</a></li>
-          <li><a href="#">Partner</a></li>
-          <li><a href="mailto:hello@133.online">hello@133.online</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="ft-bottom">
-      <span class="ft-legal">ONE33 · Registered NPO &amp; PBO · Section 18A · South Africa</span>
-      <span class="ft-domain">133.online</span>
-    </div>
-  </footer>
+    </section>
 
-  <script>
+    <!-- Footer -->
+    <footer>
+      <div class="ft">
+        <div class="ft-brand">
+          <span class="ft-mark">ONE33</span>
+          <p class="ft-strapline">
+            Building South Africa<br>toward reconciliation.
+          </p>
+        </div>
+        <div class="ft-col">
+          <span class="ft-col-h">Organisation</span>
+          <ul>
+            <li><a href="#">Mission</a></li>
+            <li><a href="#">Method</a></li>
+            <li><a href="#">Governance</a></li>
+            <li><a href="#">Stories</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <span class="ft-col-h">Contact</span>
+          <ul>
+            <li><a href="#">Give</a></li>
+            <li><a href="#">Volunteer Skills</a></li>
+            <li><a href="#">Partner</a></li>
+            <li><a href="mailto:hello@133.online">hello@133.online</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <span class="ft-legal"
+          >ONE33 · Registered NPO &amp; PBO · Section 18A · South Africa</span
+        >
+        <span class="ft-domain">133.online</span>
+      </div>
+    </footer>
+
+    <script>
+    "use strict";
     // ── Cursor
-    const cur = document.getElementById('cur');
-    const ring = document.getElementById('curRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
+    const cur = document.getElementById("cur");
+    const ring = document.getElementById("curRing");
+    let mx = 0,
+      my = 0,
+      rx = 0,
+      ry = 0;
 
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cur.style.left = mx + 'px';
-      cur.style.top  = my + 'px';
+    document.addEventListener("mousemove", (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      cur.style.left = mx + "px";
+      cur.style.top = my + "px";
     });
     (function lerp() {
       rx += (mx - rx) * 0.1;
       ry += (my - ry) * 0.1;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
+      ring.style.left = rx + "px";
+      ring.style.top = ry + "px";
       requestAnimationFrame(lerp);
     })();
 
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('h'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('h'));
+    document.querySelectorAll("a, button").forEach((el) => {
+      el.addEventListener("mouseenter", () => ring.classList.add("h"));
+      el.addEventListener("mouseleave", () => ring.classList.remove("h"));
     });
 
     // ── Nav context
-    const nav = document.getElementById('nav');
-    const darkSections = document.querySelectorAll('.hero, .s-quote, .s-give');
+    const nav = document.getElementById("nav");
+    const darkSections = document.querySelectorAll(".hero, .s-quote, .s-give");
 
-    const navObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) nav.classList.add('over-dark');
-        else {
-          const anyDark = [...darkSections].some(s => {
-            const r = s.getBoundingClientRect();
-            return r.top < 40 && r.bottom > 40;
-          });
-          if (!anyDark) nav.classList.remove('over-dark');
-        }
-      });
-    }, { threshold: 0.01, rootMargin: '-40px 0px 0px 0px' });
+    const navObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            nav.classList.add("over-dark");
+          } else {
+            const anyDark = [...darkSections].some((s) => {
+              const r = s.getBoundingClientRect();
+              return r.top < 40 && r.bottom > 40;
+            });
+            if (!anyDark) {
+              nav.classList.remove("over-dark");
+            }
+          }
+        });
+      },
+      { threshold: 0.01, rootMargin: "-40px 0px 0px 0px" }
+    );
 
-    darkSections.forEach(s => navObs.observe(s));
+    darkSections.forEach((s) => navObs.observe(s));
 
     // ── Scroll reveal
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
 
-    document.querySelectorAll('[data-r]').forEach(el => obs.observe(el));
-  </script>
-
-</body>
+    document.querySelectorAll("[data-r]").forEach((el) => obs.observe(el));
+    </script>
+  </body>
 </html>

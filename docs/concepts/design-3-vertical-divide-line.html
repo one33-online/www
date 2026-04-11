@@ -1,150 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ONE33</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONE33</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+      rel="stylesheet"
+    >
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
 
     :root {
-      --deep:      #13202C;
-      --slate:     #1D3044;
-      --ochre:     #C8902A;
-      --ochre-hi:  #D9A840;
-      --cream:     #ECE7DE;
-      --cream-mid: #E3DBCF;
-      --cream-drk: #D6CCBF;
-      --ink:       #0F1A22;
-      --body-col:  #2A2018;
-      --mid:       rgba(42,32,24,0.5);
-      --faint:     rgba(42,32,24,0.25);
-      --display: 'Big Shoulders Display', sans-serif;
-      --serif: 'Crimson Pro', Georgia, serif;
+      --deep: #13202c;
+      --slate: #1d3044;
+      --ochre: #c8902a;
+      --ochre-hi: #d9a840;
+      --cream: #ece7de;
+      --cream-mid: #e3dbcf;
+      --cream-drk: #d6ccbf;
+      --ink: #0f1a22;
+      --body-col: #2a2018;
+      --mid: rgba(42, 32, 24, 0.5);
+      --faint: rgba(42, 32, 24, 0.25);
+      --display: "Big Shoulders Display", sans-serif;
+      --serif: "Crimson Pro", Georgia, serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: var(--serif);
-      background: var(--cream);
-      color: var(--body-col);
       overflow-x: hidden;
+      font-family: var(--serif);
+      color: var(--body-col);
       cursor: none;
+      background: var(--cream);
     }
 
-    ::selection { background: var(--ochre); color: #fff; }
+    ::selection {
+      color: #fff;
+      background: var(--ochre);
+    }
 
     /* ─── Cursor ─────────────────────────────────── */
     #cur {
       position: fixed;
-      width: 12px; height: 12px;
-      background: var(--ochre);
-      pointer-events: none;
       z-index: 9000;
-      transform: translate(-50%,-50%);
+      width: 12px;
+      height: 12px;
+      pointer-events: none;
+      background: var(--ochre);
       mix-blend-mode: multiply;
-      transition: width .3s ease, height .3s ease, border-radius .3s ease;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        border-radius 0.3s ease;
     }
-    #cur.big { width: 50px; height: 50px; border-radius: 50%; background: transparent; border: 1.5px solid var(--ochre); mix-blend-mode: normal; }
+    #cur.big {
+      width: 50px;
+      height: 50px;
+      background: transparent;
+      border: 1.5px solid var(--ochre);
+      border-radius: 50%;
+      mix-blend-mode: normal;
+    }
 
     /* ─── Nav ────────────────────────────────────── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
       z-index: 500;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       height: 4rem;
+      padding: 0 2.5rem;
     }
-    nav.s { background: rgba(19,32,44,0.96); backdrop-filter: blur(10px); }
+    nav.s {
+      background: rgba(19, 32, 44, 0.96);
+      backdrop-filter: blur(10px);
+    }
 
     .n-logo {
       font-family: var(--display);
-      font-weight: 900;
       font-size: 1.2rem;
-      letter-spacing: 0.1em;
+      font-weight: 900;
       color: #fff;
+      letter-spacing: 0.1em;
       text-decoration: none;
       cursor: none;
     }
-    nav:not(.s) .n-logo { color: inherit; mix-blend-mode: difference; filter: invert(0); }
-    
+    nav:not(.s) .n-logo {
+      color: inherit;
+      mix-blend-mode: difference;
+      filter: invert(0);
+    }
+
     .n-links {
-      display: flex; gap: 2rem; list-style: none;
+      display: flex;
+      gap: 2rem;
+      list-style: none;
     }
     .n-links a {
       font-family: var(--display);
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      text-decoration: none; cursor: none;
-      transition: color .2s;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      cursor: none;
+      transition: color 0.2s;
     }
-    .n-links a:hover { color: #fff; }
+    .n-links a:hover {
+      color: #fff;
+    }
 
     .n-cta {
+      padding: 0.5rem 1.3rem;
       font-family: var(--display);
-      font-size: 0.7rem; font-weight: 800;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      background: var(--ochre); color: #fff;
-      padding: .5rem 1.3rem;
-      text-decoration: none; cursor: none;
-      transition: background .2s;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      text-decoration: none;
+      cursor: none;
+      background: var(--ochre);
+      transition: background 0.2s;
     }
-    .n-cta:hover { background: var(--ochre-hi); }
+    .n-cta:hover {
+      background: var(--ochre-hi);
+    }
 
     /* ─── HERO: Split divide ─────────────────────── */
     .hero {
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 2px 1fr;
       min-height: 100vh;
       padding-top: 4rem;
-      position: relative;
     }
 
     .hero-divide {
-      background: var(--ochre);
       position: relative;
       z-index: 2;
+      background: var(--ochre);
     }
 
     /* Left: dark panel */
     .hero-l {
-      background: var(--deep);
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 4rem 3rem 4rem 2.5rem;
-      position: relative;
       overflow: hidden;
+      background: var(--deep);
     }
 
     .hero-bg-num {
       position: absolute;
-      top: 50%; left: -0.1em;
-      transform: translateY(-50%);
+      top: 50%;
+      left: -0.1em;
       font-family: var(--display);
-      font-weight: 900;
       font-size: 52vw;
+      font-weight: 900;
       line-height: 0.85;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(200,144,42,0.07);
+      -webkit-text-stroke: 1px rgba(200, 144, 42, 0.07);
+      letter-spacing: -0.05em;
       pointer-events: none;
       user-select: none;
-      letter-spacing: -0.05em;
+      transform: translateY(-50%);
     }
 
     .hero-kicker {
-      font-family: var(--display);
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--ochre);
-      margin-bottom: 1.5rem;
       position: relative;
+      margin-bottom: 1.5rem;
+      font-family: var(--display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--ochre);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
     }
 
     .hero-words {
@@ -153,158 +206,204 @@
     .hero-word {
       display: block;
       font-family: var(--display);
-      font-weight: 900;
       font-size: clamp(5rem, 9vw, 10.5rem);
+      font-weight: 900;
       line-height: 0.88;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
       color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
       opacity: 0;
       transform: translateY(3rem);
-      animation: wordIn 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+      animation: wordIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .hero-word:nth-child(1) { animation-delay: 0.3s; }
-    .hero-word:nth-child(2) { animation-delay: 0.45s; }
-    .hero-word:nth-child(3) { animation-delay: 0.6s; }
-    .hero-word:nth-child(4) { animation-delay: 0.75s; color: var(--ochre); }
-    .hero-word:nth-child(5) { animation-delay: 0.9s; color: var(--ochre); }
+    .hero-word:nth-child(1) {
+      animation-delay: 0.3s;
+    }
+    .hero-word:nth-child(2) {
+      animation-delay: 0.45s;
+    }
+    .hero-word:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    .hero-word:nth-child(4) {
+      color: var(--ochre);
+      animation-delay: 0.75s;
+    }
+    .hero-word:nth-child(5) {
+      color: var(--ochre);
+      animation-delay: 0.9s;
+    }
 
     @keyframes wordIn {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Right: cream panel */
     .hero-r {
-      background: var(--cream);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 4rem 2.5rem 4rem 3rem;
+      background: var(--cream);
     }
 
     .hero-wordmark-bridge {
       position: absolute;
-      left: 50%;
       top: 4rem;
-      transform: translateX(-50%);
+      left: 50%;
       z-index: 10;
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: 0.85rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      background: var(--ochre);
-      color: #fff;
       padding: 0.5rem 1rem;
+      font-family: var(--display);
+      font-size: 0.85rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
       white-space: nowrap;
+      background: var(--ochre);
+      transform: translateX(-50%);
     }
 
     .hero-r-label {
-      font-family: var(--display);
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--faint);
       margin-bottom: 1.5rem;
+      font-family: var(--display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
     }
 
     .hero-r-body {
+      max-width: 32ch;
+      margin-bottom: 3rem;
       font-family: var(--serif);
       font-size: 1.25rem;
       font-weight: 300;
       line-height: 1.65;
       color: var(--body-col);
-      max-width: 32ch;
-      margin-bottom: 3rem;
     }
-    .hero-r-body strong { font-weight: 600; }
+    .hero-r-body strong {
+      font-weight: 600;
+    }
 
-    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
 
     .btn-dark {
-      font-family: var(--display);
-      font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      background: var(--deep); color: #fff;
-      padding: 0.85rem 1.8rem;
-      text-decoration: none; cursor: none;
-      transition: background .2s;
       display: inline-block;
+      padding: 0.85rem 1.8rem;
+      font-family: var(--display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      cursor: none;
+      background: var(--deep);
+      transition: background 0.2s;
     }
-    .btn-dark:hover { background: var(--slate); }
+    .btn-dark:hover {
+      background: var(--slate);
+    }
 
     .btn-outline {
-      font-family: var(--display);
-      font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      background: transparent; color: var(--deep);
-      border: 2px solid var(--deep);
-      padding: 0.85rem 1.8rem;
-      text-decoration: none; cursor: none;
-      transition: background .2s, color .2s;
       display: inline-block;
+      padding: 0.85rem 1.8rem;
+      font-family: var(--display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--deep);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      cursor: none;
+      background: transparent;
+      border: 2px solid var(--deep);
+      transition:
+        background 0.2s,
+        color 0.2s;
     }
-    .btn-outline:hover { background: var(--deep); color: #fff; }
+    .btn-outline:hover {
+      color: #fff;
+      background: var(--deep);
+    }
 
     .hero-foot-line {
       display: flex;
-      align-items: center;
       gap: 0.75rem;
+      align-items: center;
       margin-top: 2.5rem;
     }
-    .hero-foot-dot { width: 5px; height: 5px; background: var(--ochre); border-radius: 50%; }
+    .hero-foot-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--ochre);
+      border-radius: 50%;
+    }
     .hero-foot-text {
       font-family: var(--display);
-      font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 0.62rem;
+      font-weight: 700;
       color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
     }
 
     /* ─── Full-bleed sentence ───────────────────── */
     .s-sentence {
-      background: var(--ochre);
-      padding: 6rem 2.5rem;
       position: relative;
+      padding: 6rem 2.5rem;
       overflow: hidden;
+      background: var(--ochre);
     }
     .sentence-text {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: clamp(2.6rem, 5.5vw, 6rem);
-      line-height: 1.0;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      color: #fff;
       max-width: 100%;
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 5.5vw, 6rem);
+      font-weight: 900;
+      line-height: 1;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
     }
     .sentence-text em {
-      font-style: italic;
       font-family: var(--serif);
-      font-weight: 600;
       font-size: 0.88em;
-      opacity: 0.75;
+      font-style: italic;
+      font-weight: 600;
       text-transform: none;
       letter-spacing: 0;
+      opacity: 0.75;
     }
     .sentence-sub {
+      max-width: 48ch;
       margin-top: 2rem;
       font-family: var(--serif);
-      font-style: italic;
       font-size: 1.1rem;
+      font-style: italic;
       font-weight: 300;
-      color: rgba(255,255,255,0.65);
-      max-width: 48ch;
+      color: rgba(255, 255, 255, 0.65);
     }
     .sentence-rule {
       position: absolute;
-      right: 2.5rem; top: 50%;
-      transform: translateY(-50%);
+      top: 50%;
+      right: 2.5rem;
       font-family: var(--display);
-      font-weight: 900;
       font-size: 18rem;
+      font-weight: 900;
       line-height: 1;
-      color: rgba(255,255,255,0.06);
+      color: rgba(255, 255, 255, 0.06);
       letter-spacing: -0.05em;
       pointer-events: none;
+      transform: translateY(-50%);
     }
 
     /* ─── Sticky scroll — method ─────────────────── */
@@ -314,52 +413,71 @@
     }
 
     .method-sticky {
-      width: 50%;
       position: sticky;
       top: 0;
+      flex-shrink: 0;
+      width: 50%;
       height: 100vh;
       overflow: hidden;
-      flex-shrink: 0;
     }
 
     .method-sticky-inner {
-      width: 100%; height: 100%;
       position: relative;
+      width: 100%;
+      height: 100%;
       background: var(--deep);
     }
 
     /* Placeholder panels that switch */
     .m-img {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       opacity: 0;
       transition: opacity 0.6s ease;
     }
-    .m-img.active { opacity: 1; }
-    .m-img-1 { background: #2A3B4A; }
-    .m-img-2 { background: #1A3530; }
-    .m-img-3 { background: #2E2A20; }
+    .m-img.active {
+      opacity: 1;
+    }
+    .m-img-1 {
+      background: #2a3b4a;
+    }
+    .m-img-2 {
+      background: #1a3530;
+    }
+    .m-img-3 {
+      background: #2e2a20;
+    }
 
     .m-img-label {
-      position: absolute; bottom: 2rem; left: 2.5rem;
+      position: absolute;
+      bottom: 2rem;
+      left: 2.5rem;
       font-family: var(--display);
-      font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
     }
 
     .m-img-num {
-      position: absolute; top: 3rem; right: 2.5rem;
+      position: absolute;
+      top: 3rem;
+      right: 2.5rem;
       font-family: var(--display);
-      font-weight: 900;
       font-size: 7rem;
-      color: rgba(255,255,255,0.06);
+      font-weight: 900;
       line-height: 1;
+      color: rgba(255, 255, 255, 0.06);
     }
 
     .m-progress {
-      position: absolute; left: 0; top: 0; bottom: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
       width: 3px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
     }
     .m-progress-fill {
       width: 100%;
@@ -368,145 +486,182 @@
     }
 
     .method-panels {
-      width: 50%;
       flex-shrink: 0;
+      width: 50%;
     }
 
     .m-panel {
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-height: 100vh;
       padding: 6rem 4rem 6rem 5rem;
       border-bottom: 1px solid var(--cream-drk);
     }
-    .m-panel:last-child { border-bottom: none; }
+    .m-panel:last-child {
+      border-bottom: none;
+    }
 
     .m-panel-tag {
       display: inline-flex;
-      align-items: center;
       gap: 0.75rem;
-      font-family: var(--display);
-      font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ochre);
+      align-items: center;
       margin-bottom: 3rem;
+      font-family: var(--display);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--ochre);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
     }
     .m-panel-tag::before {
-      content: '';
       display: block;
-      width: 2rem; height: 2px;
+      width: 2rem;
+      height: 2px;
+      content: "";
       background: var(--ochre);
     }
 
     .m-panel-h {
+      margin-bottom: 2rem;
       font-family: var(--display);
-      font-weight: 900;
       font-size: clamp(2.8rem, 4vw, 4.8rem);
+      font-weight: 900;
       line-height: 0.95;
+      color: var(--ink);
       text-transform: uppercase;
       letter-spacing: -0.01em;
-      color: var(--ink);
-      margin-bottom: 2rem;
     }
 
     .m-panel-body {
+      max-width: 36ch;
       font-family: var(--serif);
       font-size: 1.1rem;
       font-weight: 300;
       line-height: 1.8;
       color: var(--mid);
-      max-width: 36ch;
     }
-    .m-panel-body + .m-panel-body { margin-top: 1rem; }
+    .m-panel-body + .m-panel-body {
+      margin-top: 1rem;
+    }
 
     .m-panel-note {
-      margin-top: 2.5rem;
       display: inline-block;
-      font-family: var(--display);
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      border: 1.5px solid var(--cream-drk);
-      color: var(--mid);
       padding: 0.4rem 0.9rem;
+      margin-top: 2.5rem;
+      font-family: var(--display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      border: 1.5px solid var(--cream-drk);
     }
 
     /* ─── Image mosaic ──────────────────────────── */
     .s-mosaic {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 0.9fr;
       grid-template-rows: 1fr 1fr;
-      height: 80vh;
+      grid-template-columns: 1.5fr 1fr 0.9fr;
       gap: 3px;
+      height: 80vh;
       background: var(--deep);
     }
 
-    .mo { overflow: hidden; position: relative; cursor: none; }
-    .mo-fill {
-      width: 100%; height: 100%;
-      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    .mo {
+      position: relative;
+      overflow: hidden;
+      cursor: none;
     }
-    .mo:hover .mo-fill { transform: scale(1.04); }
+    .mo-fill {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mo:hover .mo-fill {
+      transform: scale(1.04);
+    }
 
-    .mo-1 { grid-row: 1 / 3; }
-    .mo-1 .mo-fill { background: #BEA98C; }
-    .mo-2 .mo-fill { background: #A08870; }
-    .mo-3 .mo-fill { background: #C9A882; }
-    .mo-4 .mo-fill { background: #1A3530; } /* Dark - holds text */
-    .mo-5 .mo-fill { background: #8F7860; }
+    .mo-1 {
+      grid-row: 1 / 3;
+    }
+    .mo-1 .mo-fill {
+      background: #bea98c;
+    }
+    .mo-2 .mo-fill {
+      background: #a08870;
+    }
+    .mo-3 .mo-fill {
+      background: #c9a882;
+    }
+    .mo-4 .mo-fill {
+      background: #1a3530;
+    } /* Dark - holds text */
+    .mo-5 .mo-fill {
+      background: #8f7860;
+    }
 
     .mo-text-block {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; justify-content: center;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding: 2.5rem;
       background: var(--ochre);
     }
     .mo-text-block p {
       font-family: var(--serif);
+      font-size: 1.35rem;
       font-style: italic;
       font-weight: 300;
-      font-size: 1.35rem;
       line-height: 1.5;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
     }
     .mo-text-block span {
       display: block;
       margin-top: 1.5rem;
       font-family: var(--display);
-      font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
     }
 
     .mo-cap {
       position: absolute;
-      bottom: 1rem; left: 1.25rem;
+      bottom: 1rem;
+      left: 1.25rem;
       font-family: var(--display);
-      font-size: 0.58rem; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
     }
 
     /* ─── Quote ─────────────────────────────────── */
     .s-quote {
-      background: var(--deep);
-      padding: 10rem 2.5rem;
       position: relative;
+      padding: 10rem 2.5rem;
       overflow: hidden;
+      background: var(--deep);
     }
 
     .q-bg {
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
       font-family: var(--display);
-      font-weight: 900;
       font-size: 40vw;
+      font-weight: 900;
       color: transparent;
-      -webkit-text-stroke: 1px rgba(200,144,42,0.04);
+      -webkit-text-stroke: 1px rgba(200, 144, 42, 0.04);
       letter-spacing: -0.05em;
       pointer-events: none;
       user-select: none;
+      transform: translate(-50%, -50%);
     }
 
     .q-inner {
@@ -516,73 +671,80 @@
     }
 
     .q-mark {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: 6rem;
-      color: var(--ochre);
-      line-height: 0.7;
-      opacity: 0.4;
       margin-bottom: 2rem;
+      font-family: var(--display);
+      font-size: 6rem;
+      font-weight: 900;
+      line-height: 0.7;
+      color: var(--ochre);
+      opacity: 0.4;
     }
 
     .q-text {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(2rem, 4vw, 4.2rem);
-      line-height: 1.25;
-      color: #fff;
       max-width: 24ch;
       margin-bottom: 3rem;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 4.2rem);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.25;
+      color: #fff;
     }
     .q-text strong {
-      font-weight: 600;
       font-style: normal;
+      font-weight: 600;
       color: var(--ochre);
     }
 
     .q-attr {
       display: flex;
-      align-items: center;
       gap: 1.25rem;
+      align-items: center;
     }
-    .q-attr-line { width: 2.5rem; height: 1.5px; background: var(--ochre); }
+    .q-attr-line {
+      width: 2.5rem;
+      height: 1.5px;
+      background: var(--ochre);
+    }
     .q-attr-text {
       font-family: var(--display);
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
     }
 
     /* ─── Partner — horizontal cards ────────────── */
     .s-partner {
-      background: var(--cream);
       padding: 7rem 2.5rem;
+      background: var(--cream);
       border-top: 1px solid var(--cream-drk);
     }
 
     .partner-top {
-      margin-bottom: 5rem;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
       gap: 3rem;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 5rem;
     }
 
     .partner-h {
       font-family: var(--display);
-      font-weight: 900;
       font-size: clamp(3rem, 6vw, 7rem);
+      font-weight: 900;
       line-height: 0.9;
+      color: var(--ink);
       text-transform: uppercase;
       letter-spacing: -0.02em;
-      color: var(--ink);
     }
 
     .partner-intro {
       max-width: 38ch;
       font-family: var(--serif);
-      font-size: 1.05rem; font-weight: 300;
+      font-size: 1.05rem;
+      font-weight: 300;
       line-height: 1.75;
       color: var(--mid);
     }
@@ -594,154 +756,184 @@
     }
 
     .p-card {
-      flex: 1;
-      background: var(--cream-mid);
-      padding: 3rem 2.5rem;
-      display: flex;
-      flex-direction: column;
       position: relative;
-      border-top: 3px solid transparent;
-      transition: border-color .3s, background .3s;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 3rem 2.5rem;
       cursor: none;
+      background: var(--cream-mid);
+      border-top: 3px solid transparent;
+      transition:
+        border-color 0.3s,
+        background 0.3s;
     }
-    .p-card:hover { border-top-color: var(--ochre); background: var(--cream-drk); }
+    .p-card:hover {
+      background: var(--cream-drk);
+      border-top-color: var(--ochre);
+    }
 
     .p-num {
-      font-family: var(--display);
-      font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--faint);
       margin-bottom: 2.5rem;
+      font-family: var(--display);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
     }
 
     .p-title {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: 2rem;
-      line-height: 1.0;
-      text-transform: uppercase;
-      color: var(--ink);
       margin-bottom: 1.25rem;
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--ink);
+      text-transform: uppercase;
     }
 
     .p-body {
+      flex: 1;
+      margin-bottom: 2rem;
       font-family: var(--serif);
       font-size: 0.95rem;
       font-weight: 300;
       line-height: 1.8;
       color: var(--mid);
-      flex: 1;
-      margin-bottom: 2rem;
     }
 
     .p-link {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
       font-family: var(--display);
-      font-size: 0.68rem; font-weight: 800;
-      letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 0.68rem;
+      font-weight: 800;
       color: var(--ochre);
-      text-decoration: none; cursor: none;
-      transition: gap .2s;
-      display: flex; align-items: center; gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      cursor: none;
+      transition: gap 0.2s;
     }
-    .p-link::after { content: '→'; }
-    .p-card:hover .p-link { gap: 0.85rem; }
+    .p-link::after {
+      content: "→";
+    }
+    .p-card:hover .p-link {
+      gap: 0.85rem;
+    }
 
     /* ─── Legal strip ────────────────────────────── */
     .s-legal {
-      background: var(--slate);
       display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
       align-items: center;
       justify-content: space-between;
       padding: 2.5rem 2.5rem;
-      gap: 2rem;
-      flex-wrap: wrap;
+      background: var(--slate);
     }
 
     .legal-p {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.45);
       max-width: 46ch;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
       line-height: 1.6;
+      color: rgba(255, 255, 255, 0.45);
     }
 
     .legal-docs {
-      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
     .legal-doc {
-      font-family: var(--display);
-      font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: rgba(255,255,255,0.45);
       padding: 0.45rem 0.85rem;
-      text-decoration: none; cursor: none;
-      transition: border-color .2s, color .2s;
+      font-family: var(--display);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      cursor: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition:
+        border-color 0.2s,
+        color 0.2s;
     }
-    .legal-doc:hover { border-color: var(--ochre); color: var(--ochre); }
+    .legal-doc:hover {
+      color: var(--ochre);
+      border-color: var(--ochre);
+    }
 
     /* ─── Give ───────────────────────────────────── */
     .s-give {
-      background: var(--cream-mid);
       display: grid;
       grid-template-columns: 1fr 2px 1fr;
+      background: var(--cream-mid);
     }
 
     .give-l {
-      background: var(--deep);
-      padding: 8rem 3rem 8rem 2.5rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 8rem 3rem 8rem 2.5rem;
+      background: var(--deep);
     }
 
-    .give-divide { background: var(--ochre); }
+    .give-divide {
+      background: var(--ochre);
+    }
 
     .give-r {
-      background: var(--cream-mid);
-      padding: 8rem 2.5rem 8rem 3rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 8rem 2.5rem 8rem 3rem;
+      background: var(--cream-mid);
     }
 
     .give-h {
+      margin-bottom: 1rem;
       font-family: var(--display);
-      font-weight: 900;
       font-size: clamp(4rem, 8vw, 9rem);
+      font-weight: 900;
       line-height: 0.88;
+      color: #fff;
       text-transform: uppercase;
       letter-spacing: -0.02em;
-      color: #fff;
-      margin-bottom: 1rem;
     }
 
     .give-sub {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.15rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.45);
       margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.45);
     }
 
     .give-r-label {
-      font-family: var(--display);
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--faint);
       margin-bottom: 1.5rem;
+      font-family: var(--display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
     }
 
     .give-r-body {
+      max-width: 38ch;
+      margin-bottom: 2.5rem;
       font-family: var(--serif);
       font-size: 1.05rem;
       font-weight: 300;
       line-height: 1.8;
       color: var(--mid);
-      max-width: 38ch;
-      margin-bottom: 2.5rem;
     }
 
     .give-actions {
@@ -751,36 +943,51 @@
     }
 
     .btn-ochre {
-      font-family: var(--display);
-      font-size: 0.75rem; font-weight: 800;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      background: var(--ochre); color: #fff;
-      padding: 1rem 2rem;
-      text-decoration: none; cursor: none;
-      text-align: center;
-      transition: background .2s;
       display: block;
+      padding: 1rem 2rem;
+      font-family: var(--display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      cursor: none;
+      background: var(--ochre);
+      transition: background 0.2s;
     }
-    .btn-ochre:hover { background: var(--ochre-hi); }
+    .btn-ochre:hover {
+      background: var(--ochre-hi);
+    }
 
     .btn-ink {
-      font-family: var(--display);
-      font-size: 0.75rem; font-weight: 800;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      background: transparent; color: var(--body-col);
-      border: 2px solid var(--cream-drk);
-      padding: 1rem 2rem;
-      text-decoration: none; cursor: none;
-      text-align: center;
-      transition: border-color .2s, background .2s;
       display: block;
+      padding: 1rem 2rem;
+      font-family: var(--display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--body-col);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      cursor: none;
+      background: transparent;
+      border: 2px solid var(--cream-drk);
+      transition:
+        border-color 0.2s,
+        background 0.2s;
     }
-    .btn-ink:hover { border-color: var(--deep); background: var(--cream-drk); }
+    .btn-ink:hover {
+      background: var(--cream-drk);
+      border-color: var(--deep);
+    }
 
     /* ─── Footer ─────────────────────────────────── */
     footer {
-      background: var(--ink);
       padding: 5rem 2.5rem 3rem;
+      background: var(--ink);
     }
 
     .ft {
@@ -788,438 +995,576 @@
       grid-template-columns: 1.5fr 1fr 1fr;
       gap: 5rem;
       padding-bottom: 4rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
       margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .ft-mark {
-      font-family: var(--display);
-      font-weight: 900;
-      font-size: 3.5rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #fff;
       display: block;
       margin-bottom: 0.75rem;
+      font-family: var(--display);
+      font-size: 3.5rem;
+      font-weight: 900;
       line-height: 1;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .ft-tag {
       font-family: var(--serif);
-      font-style: italic;
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.3);
+      font-style: italic;
       line-height: 1.5;
+      color: rgba(255, 255, 255, 0.3);
     }
 
     .ft-col-h {
-      font-family: var(--display);
-      font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
-      margin-bottom: 1.5rem;
       display: block;
+      margin-bottom: 1.5rem;
+      font-family: var(--display);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
     }
 
-    .ft-col ul { list-style: none; }
-    .ft-col li { margin-bottom: 0.6rem; }
+    .ft-col ul {
+      list-style: none;
+    }
+    .ft-col li {
+      margin-bottom: 0.6rem;
+    }
     .ft-col a {
       font-family: var(--serif);
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.45);
-      text-decoration: none; cursor: none;
-      transition: color .2s;
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      cursor: none;
+      transition: color 0.2s;
     }
-    .ft-col a:hover { color: #fff; }
+    .ft-col a:hover {
+      color: #fff;
+    }
 
     .ft-bottom {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
     .ft-legal {
       font-family: var(--display);
-      font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(255,255,255,0.18);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.18);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
     .ft-url {
       font-family: var(--serif);
-      font-style: italic;
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.18);
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.18);
     }
 
     /* ─── Scroll reveal ──────────────────────────── */
     [data-r] {
       opacity: 0;
       transform: translateY(1.8rem);
-      transition: opacity 1s cubic-bezier(0.16,1,0.3,1),
-                  transform 1s cubic-bezier(0.16,1,0.3,1);
+      transition:
+        opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    [data-r].in { opacity: 1; transform: translateY(0); }
-    [data-d="1"] { transition-delay: 0.12s; }
-    [data-d="2"] { transition-delay: 0.25s; }
-    [data-d="3"] { transition-delay: 0.4s; }
+    [data-r].in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-d="1"] {
+      transition-delay: 0.12s;
+    }
+    [data-d="2"] {
+      transition-delay: 0.25s;
+    }
+    [data-d="3"] {
+      transition-delay: 0.4s;
+    }
 
     /* ─── Responsive ─────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 0 1.25rem; }
-      .n-links { display: none; }
-      .hero { grid-template-columns: 1fr; grid-template-rows: auto 2px auto; min-height: auto; }
-      .hero-divide { height: 2px; }
-      .hero-l, .hero-r { padding: 5rem 1.25rem 3.5rem; }
-      .hero-wordmark-bridge { top: auto; bottom: -1.2rem; }
-      .hero-bg-num { font-size: 80vw; }
-      .s-sentence { padding: 4rem 1.25rem; }
-      .sentence-rule { display: none; }
-      .s-method { flex-direction: column; }
-      .method-sticky { width: 100%; height: 50vw; position: relative; }
-      .method-panels { width: 100%; }
-      .m-panel { padding: 4rem 1.25rem; min-height: auto; }
-      .s-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; height: auto; }
-      .mo-1 { grid-row: auto; grid-column: 1 / 3; height: 45vw; }
-      .mo-2, .mo-3, .mo-5 { height: 35vw; }
-      .mo-4 { height: 35vw; }
-      .s-quote { padding: 6rem 1.25rem; }
-      .s-partner { padding: 5rem 1.25rem; }
-      .partner-top { flex-direction: column; gap: 2rem; }
-      .p-cards { flex-direction: column; }
-      .s-legal { padding: 2.5rem 1.25rem; }
-      .s-give { grid-template-columns: 1fr; grid-template-rows: auto 2px auto; }
-      .give-divide { height: 2px; }
-      .give-l, .give-r { padding: 5rem 1.25rem; }
-      footer { padding: 4rem 1.25rem 2rem; }
-      .ft { grid-template-columns: 1fr; gap: 3rem; }
+      nav {
+        padding: 0 1.25rem;
+      }
+      .n-links {
+        display: none;
+      }
+      .hero {
+        grid-template-rows: auto 2px auto;
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-divide {
+        height: 2px;
+      }
+      .hero-l,
+      .hero-r {
+        padding: 5rem 1.25rem 3.5rem;
+      }
+      .hero-wordmark-bridge {
+        top: auto;
+        bottom: -1.2rem;
+      }
+      .hero-bg-num {
+        font-size: 80vw;
+      }
+      .s-sentence {
+        padding: 4rem 1.25rem;
+      }
+      .sentence-rule {
+        display: none;
+      }
+      .s-method {
+        flex-direction: column;
+      }
+      .method-sticky {
+        position: relative;
+        width: 100%;
+        height: 50vw;
+      }
+      .method-panels {
+        width: 100%;
+      }
+      .m-panel {
+        min-height: auto;
+        padding: 4rem 1.25rem;
+      }
+      .s-mosaic {
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+      }
+      .mo-1 {
+        grid-row: auto;
+        grid-column: 1 / 3;
+        height: 45vw;
+      }
+      .mo-2,
+      .mo-3,
+      .mo-5 {
+        height: 35vw;
+      }
+      .mo-4 {
+        height: 35vw;
+      }
+      .s-quote {
+        padding: 6rem 1.25rem;
+      }
+      .s-partner {
+        padding: 5rem 1.25rem;
+      }
+      .partner-top {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .p-cards {
+        flex-direction: column;
+      }
+      .s-legal {
+        padding: 2.5rem 1.25rem;
+      }
+      .s-give {
+        grid-template-rows: auto 2px auto;
+        grid-template-columns: 1fr;
+      }
+      .give-divide {
+        height: 2px;
+      }
+      .give-l,
+      .give-r {
+        padding: 5rem 1.25rem;
+      }
+      footer {
+        padding: 4rem 1.25rem 2rem;
+      }
+      .ft {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
     }
-  </style>
-</head>
-<body>
+    </style>
+  </head>
+  <body>
+    <div id="cur"></div>
 
-  <div id="cur"></div>
+    <!-- ─── Nav ─── -->
+    <nav id="nav">
+      <a href="#" class="n-logo">ONE33</a>
+      <ul class="n-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#partner">Partner</a></li>
+      </ul>
+      <a href="#give" class="n-cta">Give</a>
+    </nav>
 
-  <!-- ─── Nav ─── -->
-  <nav id="nav">
-    <a href="#" class="n-logo">ONE33</a>
-    <ul class="n-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#method">Method</a></li>
-      <li><a href="#partner">Partner</a></li>
-    </ul>
-    <a href="#give" class="n-cta">Give</a>
-  </nav>
-
-  <!-- ─── Hero: The Divide ─── -->
-  <section class="hero">
-
-    <div class="hero-l">
-      <div class="hero-bg-num" aria-hidden="true">1</div>
-      <div class="hero-kicker">South Africa — Present Tense</div>
-      <div class="hero-words" aria-label="The divide is live.">
-        <span class="hero-word">The</span>
-        <span class="hero-word">divide</span>
-        <span class="hero-word">is</span>
-        <span class="hero-word">here.</span>
-        <span class="hero-word">Now.</span>
-      </div>
-    </div>
-
-    <div class="hero-divide" role="separator"></div>
-
-    <div class="hero-r" id="about">
-      <!-- Wordmark bridges the divide line -->
-      <div class="hero-wordmark-bridge">ONE33</div>
-
-      <div class="hero-r-label">What we do</div>
-      <p class="hero-r-body">
-        The divisions that run through South Africa were not settled in 1994. They are <strong>alive, present, and felt by people right now</strong> — across race, class, culture, gender, and generation. One33 exists inside that reality and works to bridge it.
-      </p>
-      <div class="hero-btns">
-        <a href="#partner" class="btn-dark">Partner With Us</a>
-        <a href="#method" class="btn-outline">How We Work</a>
-      </div>
-      <div class="hero-foot-line">
-        <div class="hero-foot-dot"></div>
-        <span class="hero-foot-text">NPO · PBO · Section 18A · 133.online</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Sentence ─── -->
-  <section class="s-sentence">
-    <div class="sentence-rule" aria-hidden="true">33</div>
-    <p class="sentence-text" data-r>
-      Reconciliation is not a memory.<br>
-      <em>It is a demand the present makes on all of us.</em>
-    </p>
-    <p class="sentence-sub" data-r data-d="1">
-      People are not okay. Not because of what happened — because of what is still happening. One33 asks: what has been lost, and how do we restore it now.
-    </p>
-  </section>
-
-  <!-- ─── Method — sticky scroll ─── -->
-  <section class="s-method" id="method">
-
-    <div class="method-sticky" id="mSticky">
-      <div class="method-sticky-inner">
-        <div class="m-progress"><div class="m-progress-fill" id="mProg" style="height:33%"></div></div>
-        <div class="m-img m-img-1 active" id="mImg1">
-          <div class="m-img-num">01</div>
-          <span class="m-img-label">Photography placeholder</span>
-        </div>
-        <div class="m-img m-img-2" id="mImg2">
-          <div class="m-img-num">02</div>
-          <span class="m-img-label">Photography placeholder</span>
-        </div>
-        <div class="m-img m-img-3" id="mImg3">
-          <div class="m-img-num">03</div>
-          <span class="m-img-label">Photography placeholder</span>
+    <!-- ─── Hero: The Divide ─── -->
+    <section class="hero">
+      <div class="hero-l">
+        <div class="hero-bg-num" aria-hidden="true">1</div>
+        <div class="hero-kicker">South Africa — Present Tense</div>
+        <div class="hero-words" aria-label="The divide is live.">
+          <span class="hero-word">The</span>
+          <span class="hero-word">divide</span>
+          <span class="hero-word">is</span>
+          <span class="hero-word">here.</span>
+          <span class="hero-word">Now.</span>
         </div>
       </div>
-    </div>
 
-    <div class="method-panels">
+      <div class="hero-divide" role="separator"></div>
 
-      <div class="m-panel" id="mP1" data-r>
-        <span class="m-panel-tag">01 — Relational</span>
-        <h2 class="m-panel-h">We sit with what is broken.</h2>
-        <p class="m-panel-body">
-          One33 facilitates reconciliatory dialogue — between and within communities divided by race, class, culture, and generation. Not as outside observers. As participants in the same fractured country.
+      <div class="hero-r" id="about">
+        <!-- Wordmark bridges the divide line -->
+        <div class="hero-wordmark-bridge">ONE33</div>
+
+        <div class="hero-r-label">What we do</div>
+        <p class="hero-r-body">
+          The divisions that run through South Africa were not settled in 1994.
+          They are
+          <strong>alive, present, and felt by people right now</strong>
+          — across race, class, culture, gender, and generation. One33 exists
+          inside that reality and works to bridge it.
         </p>
-        <p class="m-panel-body">
-          This work cannot be rushed. It is built on presence, trust, and the willingness to stay when the conversation becomes uncomfortable.
-        </p>
-        <span class="m-panel-note">Direct Facilitation</span>
+        <div class="hero-btns">
+          <a href="#partner" class="btn-dark">Partner With Us</a>
+          <a href="#method" class="btn-outline">How We Work</a>
+        </div>
+        <div class="hero-foot-line">
+          <div class="hero-foot-dot"></div>
+          <span class="hero-foot-text"
+            >NPO · PBO · Section 18A · 133.online</span
+          >
+        </div>
       </div>
+    </section>
 
-      <div class="m-panel" id="mP2" data-r>
-        <span class="m-panel-tag">02 — Practical</span>
-        <h2 class="m-panel-h">We connect what restores.</h2>
-        <p class="m-panel-body">
-          One33 identifies what communities have lost — not what we think they need — then connects the organisations, government resources, and skill sets that can restore it.
-        </p>
-        <p class="m-panel-body">
-          We do not arrive with solutions. We broker the relationships that produce them.
-        </p>
-        <span class="m-panel-note">Connector · Facilitator</span>
-      </div>
-
-      <div class="m-panel" id="mP3" data-r>
-        <span class="m-panel-tag">03 — Distinct</span>
-        <h2 class="m-panel-h">We ask before we act.</h2>
-        <p class="m-panel-body">
-          Most organisations prescribe solutions before they understand the need. One33 reverses this. We begin by asking what has been lost — then work backwards to build the response.
-        </p>
-        <p class="m-panel-body">
-          This is the difference between service that sustains dependency and work that actually restores dignity.
-        </p>
-        <span class="m-panel-note">Community-led</span>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ─── Mosaic ─── -->
-  <section class="s-mosaic" aria-label="Imagery section">
-    <div class="mo mo-1">
-      <div class="mo-fill"></div>
-      <span class="mo-cap">Community</span>
-    </div>
-    <div class="mo mo-2">
-      <div class="mo-fill"></div>
-      <span class="mo-cap">Dialogue</span>
-    </div>
-    <div class="mo mo-3">
-      <div class="mo-fill"></div>
-      <span class="mo-cap">Presence</span>
-    </div>
-    <div class="mo mo-4">
-      <div class="mo-text-block">
-        <p>The work of reconciliation is quiet, costly, and mostly unseen.</p>
-        <span>The ONE33 Method</span>
-      </div>
-    </div>
-    <div class="mo mo-5">
-      <div class="mo-fill"></div>
-      <span class="mo-cap">Restoration</span>
-    </div>
-  </section>
-
-  <!-- ─── Quote ─── -->
-  <section class="s-quote">
-    <div class="q-bg" aria-hidden="true">"</div>
-    <div class="q-inner">
-      <div class="q-mark" data-r aria-hidden="true">"</div>
-      <p class="q-text" data-r data-d="1">
-        We don't ask what we can offer.<br>
-        We ask <strong>what you've lost.</strong>
+    <!-- ─── Sentence ─── -->
+    <section class="s-sentence">
+      <div class="sentence-rule" aria-hidden="true">33</div>
+      <p class="sentence-text" data-r>
+        Reconciliation is not a memory.<br>
+        <em>It is a demand the present makes on all of us.</em>
       </p>
-      <div class="q-attr" data-r data-d="2">
-        <div class="q-attr-line"></div>
-        <span class="q-attr-text">The ONE33 Approach</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Partner ─── -->
-  <section class="s-partner" id="partner">
-    <div class="partner-top">
-      <h2 class="partner-h" data-r>
-        Your place<br>
-        in this work.
-      </h2>
-      <p class="partner-intro" data-r data-d="1">
-        This is not the work of specialists. It requires people who carry resources, skills, and relationships — and choose to direct them toward something real. You don't need to be extraordinary. You need to be willing.
+      <p class="sentence-sub" data-r data-d="1">
+        People are not okay. Not because of what happened — because of what is
+        still happening. One33 asks: what has been lost, and how do we restore
+        it now.
       </p>
-    </div>
-    <div class="p-cards">
-      <div class="p-card" data-r>
-        <p class="p-num">01 ——</p>
-        <h3 class="p-title">Give Financially</h3>
-        <p class="p-body">Reconciliation takes time. Your giving funds presence — not a programme that launches and exits, but an ongoing relationship with community. That is what makes the difference.</p>
-        <a href="#give" class="p-link">Donate Now</a>
+    </section>
+
+    <!-- ─── Method — sticky scroll ─── -->
+    <section class="s-method" id="method">
+      <div class="method-sticky" id="mSticky">
+        <div class="method-sticky-inner">
+          <div class="m-progress">
+            <div class="m-progress-fill" id="mProg" style="height:33%"></div>
+          </div>
+          <div class="m-img m-img-1 active" id="mImg1">
+            <div class="m-img-num">01</div>
+            <span class="m-img-label">Photography placeholder</span>
+          </div>
+          <div class="m-img m-img-2" id="mImg2">
+            <div class="m-img-num">02</div>
+            <span class="m-img-label">Photography placeholder</span>
+          </div>
+          <div class="m-img m-img-3" id="mImg3">
+            <div class="m-img-num">03</div>
+            <span class="m-img-label">Photography placeholder</span>
+          </div>
+        </div>
       </div>
-      <div class="p-card" data-r data-d="1">
-        <p class="p-num">02 ——</p>
-        <h3 class="p-title">Offer Skills</h3>
-        <p class="p-body">Communities have lost access to things that require real expertise to restore — legal, medical, trade, educational. If you carry a skill, One33 will find where it fits and connect you to the work.</p>
-        <a href="#contact" class="p-link">Tell Us What You Carry</a>
+
+      <div class="method-panels">
+        <div class="m-panel" id="mP1" data-r>
+          <span class="m-panel-tag">01 — Relational</span>
+          <h2 class="m-panel-h">We sit with what is broken.</h2>
+          <p class="m-panel-body">
+            One33 facilitates reconciliatory dialogue — between and within
+            communities divided by race, class, culture, and generation. Not as
+            outside observers. As participants in the same fractured country.
+          </p>
+          <p class="m-panel-body">
+            This work cannot be rushed. It is built on presence, trust, and the
+            willingness to stay when the conversation becomes uncomfortable.
+          </p>
+          <span class="m-panel-note">Direct Facilitation</span>
+        </div>
+
+        <div class="m-panel" id="mP2" data-r>
+          <span class="m-panel-tag">02 — Practical</span>
+          <h2 class="m-panel-h">We connect what restores.</h2>
+          <p class="m-panel-body">
+            One33 identifies what communities have lost — not what we think they
+            need — then connects the organisations, government resources, and
+            skill sets that can restore it.
+          </p>
+          <p class="m-panel-body">
+            We do not arrive with solutions. We broker the relationships that
+            produce them.
+          </p>
+          <span class="m-panel-note">Connector · Facilitator</span>
+        </div>
+
+        <div class="m-panel" id="mP3" data-r>
+          <span class="m-panel-tag">03 — Distinct</span>
+          <h2 class="m-panel-h">We ask before we act.</h2>
+          <p class="m-panel-body">
+            Most organisations prescribe solutions before they understand the
+            need. One33 reverses this. We begin by asking what has been lost —
+            then work backwards to build the response.
+          </p>
+          <p class="m-panel-body">
+            This is the difference between service that sustains dependency and
+            work that actually restores dignity.
+          </p>
+          <span class="m-panel-note">Community-led</span>
+        </div>
       </div>
-      <div class="p-card" data-r data-d="2">
-        <p class="p-num">03 ——</p>
-        <h3 class="p-title">Open Relationships</h3>
-        <p class="p-body">Access to government, business, and networks is itself a form of resource. One33 connects the willing with communities that need what they carry. Your relationships are part of the solution.</p>
-        <a href="#contact" class="p-link">Explore Partnership</a>
+    </section>
+
+    <!-- ─── Mosaic ─── -->
+    <section class="s-mosaic" aria-label="Imagery section">
+      <div class="mo mo-1">
+        <div class="mo-fill"></div>
+        <span class="mo-cap">Community</span>
       </div>
-    </div>
-  </section>
+      <div class="mo mo-2">
+        <div class="mo-fill"></div>
+        <span class="mo-cap">Dialogue</span>
+      </div>
+      <div class="mo mo-3">
+        <div class="mo-fill"></div>
+        <span class="mo-cap">Presence</span>
+      </div>
+      <div class="mo mo-4">
+        <div class="mo-text-block">
+          <p>The work of reconciliation is quiet, costly, and mostly unseen.</p>
+          <span>The ONE33 Method</span>
+        </div>
+      </div>
+      <div class="mo mo-5">
+        <div class="mo-fill"></div>
+        <span class="mo-cap">Restoration</span>
+      </div>
+    </section>
 
-  <!-- ─── Legal ─── -->
-  <section class="s-legal" id="contact">
-    <p class="legal-p">One33 is a registered South African NPO, PBO, and Section 18A approved organisation. All documentation is available to download.</p>
-    <div class="legal-docs">
-      <a href="#" class="legal-doc">NPO Certificate</a>
-      <a href="#" class="legal-doc">PBO Certificate</a>
-      <a href="#" class="legal-doc">Section 18A</a>
-    </div>
-  </section>
+    <!-- ─── Quote ─── -->
+    <section class="s-quote">
+      <div class="q-bg" aria-hidden="true">"</div>
+      <div class="q-inner">
+        <div class="q-mark" data-r aria-hidden="true">"</div>
+        <p class="q-text" data-r data-d="1">
+          We don't ask what we can offer.<br>
+          We ask <strong>what you've lost.</strong>
+        </p>
+        <div class="q-attr" data-r data-d="2">
+          <div class="q-attr-line"></div>
+          <span class="q-attr-text">The ONE33 Approach</span>
+        </div>
+      </div>
+    </section>
 
-  <!-- ─── Give ─── -->
-  <section class="s-give" id="give">
+    <!-- ─── Partner ─── -->
+    <section class="s-partner" id="partner">
+      <div class="partner-top">
+        <h2 class="partner-h" data-r>
+          Your place<br>
+          in this work.
+        </h2>
+        <p class="partner-intro" data-r data-d="1">
+          This is not the work of specialists. It requires people who carry
+          resources, skills, and relationships — and choose to direct them
+          toward something real. You don't need to be extraordinary. You need to
+          be willing.
+        </p>
+      </div>
+      <div class="p-cards">
+        <div class="p-card" data-r>
+          <p class="p-num">01 ——</p>
+          <h3 class="p-title">Give Financially</h3>
+          <p class="p-body">
+            Reconciliation takes time. Your giving funds presence — not a
+            programme that launches and exits, but an ongoing relationship with
+            community. That is what makes the difference.
+          </p>
+          <a href="#give" class="p-link">Donate Now</a>
+        </div>
+        <div class="p-card" data-r data-d="1">
+          <p class="p-num">02 ——</p>
+          <h3 class="p-title">Offer Skills</h3>
+          <p class="p-body">
+            Communities have lost access to things that require real expertise
+            to restore — legal, medical, trade, educational. If you carry a
+            skill, One33 will find where it fits and connect you to the work.
+          </p>
+          <a href="#contact" class="p-link">Tell Us What You Carry</a>
+        </div>
+        <div class="p-card" data-r data-d="2">
+          <p class="p-num">03 ——</p>
+          <h3 class="p-title">Open Relationships</h3>
+          <p class="p-body">
+            Access to government, business, and networks is itself a form of
+            resource. One33 connects the willing with communities that need what
+            they carry. Your relationships are part of the solution.
+          </p>
+          <a href="#contact" class="p-link">Explore Partnership</a>
+        </div>
+      </div>
+    </section>
 
-    <div class="give-l">
-      <h2 class="give-h" data-r>
-        Act<br>
-        on it.
-      </h2>
-      <p class="give-sub" data-r data-d="1">The divide is present. So is the opportunity.</p>
-    </div>
-
-    <div class="give-divide"></div>
-
-    <div class="give-r">
-      <div class="give-r-label" data-r>Give</div>
-      <p class="give-r-body" data-r data-d="1">
-        Donate via Zapper or direct bank transfer. All contributions qualify for Section 18A tax deductibility. No overhead. Your giving funds ongoing relational presence in community.
+    <!-- ─── Legal ─── -->
+    <section class="s-legal" id="contact">
+      <p class="legal-p">
+        One33 is a registered South African NPO, PBO, and Section 18A approved
+        organisation. All documentation is available to download.
       </p>
-      <div class="give-actions" data-r data-d="2">
-        <a href="#" class="btn-ochre">Donate via Zapper</a>
-        <a href="#" class="btn-ink">Bank Transfer Details</a>
-        <a href="#" class="btn-ink">Get in Touch</a>
+      <div class="legal-docs">
+        <a href="#" class="legal-doc">NPO Certificate</a>
+        <a href="#" class="legal-doc">PBO Certificate</a>
+        <a href="#" class="legal-doc">Section 18A</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ─── Footer ─── -->
-  <footer>
-    <div class="ft">
-      <div>
-        <span class="ft-mark">ONE33</span>
-        <p class="ft-tag">Building South Africa<br>toward reconciliation.</p>
+    <!-- ─── Give ─── -->
+    <section class="s-give" id="give">
+      <div class="give-l">
+        <h2 class="give-h" data-r>
+          Act<br>
+          on it.
+        </h2>
+        <p class="give-sub" data-r data-d="1">
+          The divide is present. So is the opportunity.
+        </p>
       </div>
-      <div class="ft-col">
-        <span class="ft-col-h">Organisation</span>
-        <ul>
-          <li><a href="#">Mission</a></li>
-          <li><a href="#">Method</a></li>
-          <li><a href="#">Governance</a></li>
-          <li><a href="#">Stories</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <span class="ft-col-h">Contact</span>
-        <ul>
-          <li><a href="#">Give</a></li>
-          <li><a href="#">Volunteer Skills</a></li>
-          <li><a href="#">Partner</a></li>
-          <li><a href="mailto:hello@133.online">hello@133.online</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="ft-bottom">
-      <span class="ft-legal">ONE33 · Registered NPO &amp; PBO · Section 18A · South Africa</span>
-      <span class="ft-url">133.online</span>
-    </div>
-  </footer>
 
-  <script>
+      <div class="give-divide"></div>
+
+      <div class="give-r">
+        <div class="give-r-label" data-r>Give</div>
+        <p class="give-r-body" data-r data-d="1">
+          Donate via Zapper or direct bank transfer. All contributions qualify
+          for Section 18A tax deductibility. No overhead. Your giving funds
+          ongoing relational presence in community.
+        </p>
+        <div class="give-actions" data-r data-d="2">
+          <a href="#" class="btn-ochre">Donate via Zapper</a>
+          <a href="#" class="btn-ink">Bank Transfer Details</a>
+          <a href="#" class="btn-ink">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer>
+      <div class="ft">
+        <div>
+          <span class="ft-mark">ONE33</span>
+          <p class="ft-tag">Building South Africa<br>toward reconciliation.</p>
+        </div>
+        <div class="ft-col">
+          <span class="ft-col-h">Organisation</span>
+          <ul>
+            <li><a href="#">Mission</a></li>
+            <li><a href="#">Method</a></li>
+            <li><a href="#">Governance</a></li>
+            <li><a href="#">Stories</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <span class="ft-col-h">Contact</span>
+          <ul>
+            <li><a href="#">Give</a></li>
+            <li><a href="#">Volunteer Skills</a></li>
+            <li><a href="#">Partner</a></li>
+            <li><a href="mailto:hello@133.online">hello@133.online</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <span class="ft-legal"
+          >ONE33 · Registered NPO &amp; PBO · Section 18A · South Africa</span
+        >
+        <span class="ft-url">133.online</span>
+      </div>
+    </footer>
+
+    <script>
+    "use strict";
     // ── Cursor
-    const cur = document.getElementById('cur');
-    document.addEventListener('mousemove', e => {
-      cur.style.left = e.clientX + 'px';
-      cur.style.top  = e.clientY + 'px';
+    const cur = document.getElementById("cur");
+    document.addEventListener("mousemove", (e) => {
+      cur.style.left = e.clientX + "px";
+      cur.style.top = e.clientY + "px";
     });
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => cur.classList.add('big'));
-      el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+    document.querySelectorAll("a, button").forEach((el) => {
+      el.addEventListener("mouseenter", () => cur.classList.add("big"));
+      el.addEventListener("mouseleave", () => cur.classList.remove("big"));
     });
 
     // ── Nav scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('s', window.scrollY > 60);
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("s", window.scrollY > 60);
     });
 
     // ── Sticky method panel switcher
-    const panels  = [
-      document.getElementById('mP1'),
-      document.getElementById('mP2'),
-      document.getElementById('mP3')
+    const panels = [
+      document.getElementById("mP1"),
+      document.getElementById("mP2"),
+      document.getElementById("mP3"),
     ];
-    const imgs    = [
-      document.getElementById('mImg1'),
-      document.getElementById('mImg2'),
-      document.getElementById('mImg3')
+    const imgs = [
+      document.getElementById("mImg1"),
+      document.getElementById("mImg2"),
+      document.getElementById("mImg3"),
     ];
-    const prog    = document.getElementById('mProg');
+    const prog = document.getElementById("mProg");
 
-    const pctMap  = ['33%', '66%', '100%'];
+    const pctMap = ["33%", "66%", "100%"];
 
-    const pObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const idx = panels.indexOf(entry.target);
-        if (idx < 0) return;
-        imgs.forEach((img, i) => img.classList.toggle('active', i === idx));
-        prog.style.height = pctMap[idx];
-      });
-    }, { threshold: 0.55 });
+    const pObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          const idx = panels.indexOf(entry.target);
+          if (idx < 0) {
+            return;
+          }
+          imgs.forEach((img, i) => img.classList.toggle("active", i === idx));
+          prog.style.height = pctMap[idx];
+        });
+      },
+      { threshold: 0.55 }
+    );
 
-    panels.forEach(p => pObs.observe(p));
+    panels.forEach((p) => pObs.observe(p));
 
     // ── Scroll reveal
-    const revObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          revObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    const revObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            revObs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
 
-    document.querySelectorAll('[data-r]').forEach(el => revObs.observe(el));
-  </script>
-
-</body>
+    document.querySelectorAll("[data-r]").forEach((el) => revObs.observe(el));
+    </script>
+  </body>
 </html>
