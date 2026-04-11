@@ -1,6 +1,6 @@
 # One33
 
-Website for [One33](https://one33.africa) — a South African reconciliation ministry.
+Website for One33 — a South African reconciliation ministry.
 
 ## Stack
 
