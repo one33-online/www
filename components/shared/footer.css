@@ -26,9 +26,9 @@
 }
 
 .footer-logo {
-  font-size: 1.05rem;
+  width: auto;
+  height: 1.75rem;
   color: var(--one33-cream, #f5f0e8);
-  letter-spacing: 0.02em;
 }
 
 .footer-links {

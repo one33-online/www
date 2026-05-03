@@ -23,10 +23,16 @@
 }
 
 .nav-logo {
-  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  height: 1.75rem;
   color: currentColor;
-  letter-spacing: 0.02em;
   text-decoration: none;
+}
+
+.nav-logo svg {
+  width: auto;
+  height: 100%;
 }
 
 .nav-links {
@@ -118,111 +124,5 @@
 
   .nav-menu-toggle {
     display: flex;
-  }
-}
-
-/* ── Dark-navy nav (Concept C) ───────────────────── */
-
-.nav-root--dark-navy {
-  background: var(--one33-navy, #13202c);
-  border-bottom: 1px solid var(--one33-gold, #c8902a);
-}
-
-/* Navy mobile overlay */
-.nav-overlay--navy {
-  background: var(--one33-navy, #13202c);
-}
-
-.nav-overlay--navy .nav-overlay__link:hover {
-  color: var(--one33-gold, #c8902a);
-}
-
-/* ── Split-centre nav (Concept B) ────────────────── */
-
-.nav-root--split {
-  /* Static — scrolls with page, not sticky */
-  position: static;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  color: var(--one33-ink, #0e0c0a);
-  background: var(--one33-paper, #eae4da);
-}
-
-.nav-root--split-scrolled {
-  background: var(--one33-cream, #f5f0e8);
-}
-
-.nav-split-logo {
-  font-size: 1.05rem;
-  color: currentColor;
-  text-align: center;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-}
-
-.nav-split-links {
-  display: flex;
-  gap: 2.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.nav-split-links--right {
-  justify-content: flex-end;
-}
-
-.nav-split-link {
-  font-size: 0.7rem;
-  font-weight: 400;
-  color: rgba(14, 12, 10, 0.5);
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.nav-split-link:hover {
-  color: var(--one33-ink, #0e0c0a);
-}
-
-.nav-menu-toggle--split {
-  display: none;
-}
-
-.nav-overlay--split {
-  background: var(--one33-ink, #0e0c0a);
-}
-
-@media (max-width: 768px) {
-  .nav-root--split {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 1.5rem;
-  }
-
-  .nav-split-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .nav-split-links {
-    display: none;
-  }
-
-  .nav-menu-toggle--split {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    color: var(--one33-ink, #0e0c0a);
-    cursor: pointer;
-    background: transparent;
-    border: none;
   }
 }

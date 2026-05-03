@@ -31,7 +31,15 @@ const cormorantGaramond = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "One33",
   description:
-    "A South African reconciliation ministry working toward genuine reconciliation between people across the divides that history built.",
+    "A South African reconciliation organisation working toward genuine reconciliation between people across the divides that history has built.",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

@@ -3,6 +3,7 @@
 import "./nav.css";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import One33Logo from "@/components/icons/one33-logo";
 import { cn } from "@/lib/utils";
 
 const defaultNavLinks = [
@@ -75,9 +76,7 @@ export default function Nav({
 
           {/* Centre logo */}
           <a aria-label="One33 home" className="nav-split-logo" href="/">
-            <span className="font-sans font-semibold text-current tracking-tight">
-              ONE33
-            </span>
+            <One33Logo variant="wordmark" />
           </a>
 
           {/* Right links */}
@@ -140,9 +139,7 @@ export default function Nav({
         )}
       >
         <a aria-label="One33 home" className="nav-logo" href="/">
-          <span className="font-sans font-semibold text-current tracking-tight">
-            ONE33
-          </span>
+          <One33Logo variant="wordmark" />
         </a>
 
         {/* Desktop links */}

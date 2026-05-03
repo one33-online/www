@@ -3,6 +3,20 @@
    to prevent style bleed into other concepts.
 */
 
+/* ── Dark-navy nav ───────────────────────────────── */
+.nav-root--dark-navy {
+  background: var(--one33-navy, #13202c);
+  border-bottom: 1px solid var(--one33-gold, #c8902a);
+}
+
+.nav-overlay--navy {
+  background: var(--one33-navy, #13202c);
+}
+
+.nav-overlay--navy .nav-overlay__link:hover {
+  color: var(--one33-gold, #c8902a);
+}
+
 /* ── Section kicker ─────────────────────────────── */
 .cc-kicker {
   display: block;

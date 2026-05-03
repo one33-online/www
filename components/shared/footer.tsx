@@ -1,4 +1,5 @@
 import "./footer.css";
+import One33Logo from "@/components/icons/one33-logo";
 import { Separator } from "@/components/ui/separator";
 
 export default function Footer() {
@@ -7,9 +8,7 @@ export default function Footer() {
       <Separator className="footer-separator" />
       <div className="footer-inner">
         <div className="footer-row footer-row--main">
-          <span className="footer-logo font-sans font-semibold tracking-tight">
-            ONE33
-          </span>
+          <One33Logo className="footer-logo" variant="wordmark" />
           <nav aria-label="Footer navigation">
             <ul className="footer-links">
               <li>
