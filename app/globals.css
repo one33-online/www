@@ -143,3 +143,547 @@
 .font-serif-display {
   font-family: var(--font-serif);
 }
+
+/* ── Home page styles ─────────────────────────────────────────────────────── */
+/* Mirrors concept-a.css exactly. /v1/ keeps its own copy for reference.      */
+
+/* ── Text selection ──────────────────────────────── */
+.concept-a ::selection {
+  color: var(--one33-cream);
+  background: var(--one33-terracotta);
+}
+
+/* ── Nav override — absolute overlay over hero ─── */
+.concept-a {
+  position: relative;
+}
+
+.concept-a .nav-root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  color: var(--one33-cream);
+  background: transparent;
+}
+
+/* ── Section kicker — terracotta on all sections ── */
+.ca-kicker {
+  display: block;
+  margin: 0 0 3rem;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--one33-terracotta);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ── Hero ────────────────────────────────────────── */
+.ca-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--one33-ink);
+}
+
+.ca-hero__image-slot {
+  position: absolute;
+  inset: 0;
+  background: #1c1a18;
+}
+
+.ca-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(14, 12, 10, 0.45);
+}
+
+.ca-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 3rem 6rem;
+  margin: 0 auto;
+}
+
+.ca-hero__subline {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.3;
+  color: rgba(245, 240, 232, 0.65);
+}
+
+.ca-hero__headline {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(2.4rem, 5.5vw, 5.75rem);
+  font-weight: 600;
+  line-height: 1.04;
+  color: var(--one33-cream);
+  letter-spacing: -0.02em;
+}
+
+.ca-hero__chevron {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  z-index: 2;
+  color: var(--one33-terracotta);
+  transform: translateX(-50%);
+  animation: ca-chevron-bob 1.5s ease-in-out infinite;
+}
+
+.ca-hero__chevron svg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@keyframes ca-chevron-bob {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(0.45rem);
+  }
+}
+
+/* ── Why We Exist ────────────────────────────────── */
+.ca-why {
+  background: var(--one33-cream);
+}
+
+.ca-why__inner {
+  max-width: 720px;
+  padding: 8rem 3rem;
+}
+
+.ca-why__line {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--one33-ink);
+}
+
+.ca-why__serif-moment {
+  margin: 2.5rem 0;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--one33-ink);
+}
+
+.ca-why__line--spaced {
+  margin-top: 2rem;
+}
+
+.ca-why__closing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 2.5rem;
+}
+
+.ca-why__closing-line {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--one33-ink);
+}
+
+.ca-why__psalm {
+  padding-top: 2rem;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(14, 12, 10, 0.4);
+  border-top: 1px solid rgba(14, 12, 10, 0.1);
+}
+
+/* ── What We Do ──────────────────────────────────── */
+.ca-what {
+  background: var(--one33-ink);
+}
+
+.ca-what__inner {
+  max-width: 1200px;
+  padding: 8rem 3rem;
+  margin: 0 auto;
+}
+
+.ca-what__grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0 5rem;
+  align-items: start;
+}
+
+.ca-what__col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ca-what__col-label {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--one33-cream);
+}
+
+.ca-what__col-body {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.65);
+}
+
+.ca-what__sep {
+  align-self: stretch;
+  width: 1px;
+  background-color: rgba(245, 240, 232, 0.1) !important;
+}
+
+.ca-what__closing {
+  padding-top: 4rem;
+  margin-top: 5rem;
+  text-align: center;
+  border-top: 1px solid rgba(245, 240, 232, 0.08);
+}
+
+.ca-what__closing-line {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--one33-cream);
+}
+
+@media (max-width: 768px) {
+  .ca-what__grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem 0;
+  }
+
+  .ca-what__sep {
+    display: none;
+  }
+}
+
+/* ── Partner With Us ─────────────────────────────── */
+.ca-partner {
+  background: var(--one33-paper);
+}
+
+.ca-partner__inner {
+  max-width: 1200px;
+  padding: 8rem 3rem;
+  margin: 0 auto;
+}
+
+.ca-partner__opening {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 5rem;
+}
+
+.ca-partner__opening-line {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--one33-ink);
+}
+
+.ca-partner__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.ca-partner__item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(14, 12, 10, 0.1);
+}
+
+.ca-partner__item-num {
+  padding-top: 0.2rem;
+  margin: 0;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--one33-terracotta);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.ca-partner__item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ca-partner__item-title {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 600;
+  color: var(--one33-ink);
+}
+
+.ca-partner__item-desc {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: rgba(14, 12, 10, 0.6);
+}
+
+.ca-partner__item-link {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--one33-terracotta);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ca-partner__item-link:hover {
+  color: var(--one33-rust);
+}
+
+.ca-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: auto !important;
+  padding: 0.7rem 1.25rem !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  color: var(--one33-cream) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--one33-terracotta) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  transition: background 0.2s ease !important;
+}
+
+.ca-cta-btn:hover {
+  background: var(--one33-rust) !important;
+}
+
+/* ── Give ────────────────────────────────────────── */
+.ca-give {
+  background: var(--one33-ink);
+}
+
+.ca-give__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 8rem;
+  align-items: start;
+  max-width: 1200px;
+  padding: 8rem 3rem;
+  margin: 0 auto;
+}
+
+.ca-give__heading {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--one33-cream);
+  letter-spacing: -0.02em;
+}
+
+.ca-give__right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 0.25rem;
+}
+
+.ca-give__body {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: rgba(245, 240, 232, 0.6);
+}
+
+.ca-give__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.ca-give__details {
+  width: 100%;
+}
+
+.ca-give__summary {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  list-style: none;
+  background: transparent;
+  border: 1px solid rgba(245, 240, 232, 0.15);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ca-give__summary::-webkit-details-marker {
+  display: none;
+}
+
+.ca-give__summary:hover {
+  color: var(--one33-cream);
+  border-color: rgba(245, 240, 232, 0.35);
+}
+
+.ca-give__details[open] .ca-give__summary {
+  color: var(--one33-cream);
+  border-color: rgba(245, 240, 232, 0.35);
+}
+
+.ca-give__bank {
+  padding: 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 2.1;
+  color: rgba(245, 240, 232, 0.45);
+  border: 1px solid rgba(245, 240, 232, 0.1);
+}
+
+.ca-give__bank strong {
+  font-weight: 600;
+  color: rgba(245, 240, 232, 0.75);
+  letter-spacing: 0.01em;
+}
+
+/* ── Stories ─────────────────────────────────────── */
+.ca-stories {
+  background: var(--one33-cream);
+}
+
+.ca-stories__inner {
+  max-width: 1200px;
+  padding: 10rem 3rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ca-stories__placeholder {
+  max-width: 40ch;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(14, 12, 10, 0.38);
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ca-hero__content {
+    padding: 0 1.25rem 4rem;
+  }
+
+  .ca-hero__headline {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .ca-why__inner {
+    padding: 5rem 1.25rem;
+  }
+
+  .ca-why__serif-moment {
+    margin: 2rem 0;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  .ca-what__inner {
+    padding: 5rem 1.25rem;
+  }
+
+  .ca-what__closing {
+    padding-top: 2.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .ca-partner__inner {
+    padding: 5rem 1.25rem;
+  }
+
+  .ca-partner__opening {
+    margin-bottom: 3.5rem;
+  }
+
+  .ca-partner__opening-line {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+  }
+
+  .ca-give__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem 0;
+    padding: 5rem 1.25rem;
+  }
+
+  .ca-give__heading {
+    max-width: none;
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .ca-partner__item {
+    grid-template-columns: 3.5rem 1fr;
+  }
+
+  .ca-stories__inner {
+    padding: 6rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ca-hero__headline {
+    font-size: clamp(1.75rem, 9vw, 2.5rem);
+  }
+
+  .ca-why__serif-moment {
+    font-size: clamp(1.5rem, 9vw, 2rem);
+  }
+
+  .ca-what__col-label {
+    font-size: clamp(1.25rem, 7vw, 1.75rem);
+  }
+}
