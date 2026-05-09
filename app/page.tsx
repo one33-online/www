@@ -18,8 +18,7 @@ export default function Home() {
         <div aria-hidden="true" className="home-hero__overlay" />
         <div className="home-hero__content">
           <h1 className="home-hero__headline">
-            Reconciliation is a{" "}
-            <span className="home-hero__accent">harder thing</span> than peace.
+            Reconciliation is a harder thing than peace.
           </h1>
           <div aria-hidden="true" className="home-hero__scroll">
             <span className="home-hero__scroll-line" />
@@ -83,8 +82,9 @@ export default function Home() {
               What We Do
             </span>
             <p className="home-what__intro">
-              Most organisations arrive with what they can offer. We start by
-              asking what has been lost.
+              Most organisations arrive with a solution. ONE33 exists at the
+              intersection of relational and practical because without both,
+              neither lasts.
             </p>
             <div className="home-what__grid">
               <div className="home-what__col">
