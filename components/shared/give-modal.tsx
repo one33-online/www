@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 
 const EFT_DETAILS = [
-  { label: "Account Name", value: "Lead One33 NPC" },
+  { label: "Account Name", value: "Lead ONE33 NPC" },
   { label: "Account Number", value: "63141958299" },
   { label: "Branch Code", value: "220629" },
   { label: "Branch Name", value: "Umhlanga Crescent 501" },
@@ -41,12 +41,12 @@ export default function GiveModal() {
     const isTouchDevice = navigator.maxTouchPoints > 1;
     if (navigator.share && isTouchDevice) {
       await navigator.share({
-        title: "One33 Bank Details",
-        text: `One33 — Direct Bank Transfer\n\n${SHARE_TEXT}`,
+        title: "ONE33 Bank Details",
+        text: `ONE33 — Direct Bank Transfer\n\n${SHARE_TEXT}`,
       });
     } else {
       await navigator.clipboard.writeText(
-        `One33 — Direct Bank Transfer\n\n${SHARE_TEXT}`
+        `ONE33 — Direct Bank Transfer\n\n${SHARE_TEXT}`
       );
       if (shareTimerRef.current) {
         clearTimeout(shareTimerRef.current);
@@ -67,7 +67,7 @@ export default function GiveModal() {
         <h3 className="home-partner__card-title">Give Financially</h3>
         <p className="home-partner__card-body">
           Your giving funds ongoing presence in communities — not a once-off
-          visit. One33 stays until trust is built and restoration is underway.
+          visit. ONE33 stays until trust is built and restoration is underway.
           That takes time. Your contribution makes it possible.
         </p>
         <span className="home-partner__card-action">
