@@ -1,7 +1,7 @@
 "use client";
 
-import { Check, Copy, Share2 } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, Check, Copy, Share2 } from "lucide-react";
+import { useRef, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -25,11 +25,16 @@ export default function GiveModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [copiedLabel, setCopiedLabel] = useState<string | null>(null);
   const [shareConfirmed, setShareConfirmed] = useState(false);
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shareTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const copyValue = async (label: string, value: string) => {
     await navigator.clipboard.writeText(value);
+    if (copyTimerRef.current) {
+      clearTimeout(copyTimerRef.current);
+    }
     setCopiedLabel(label);
-    setTimeout(() => setCopiedLabel(null), 2000);
+    copyTimerRef.current = setTimeout(() => setCopiedLabel(null), 2000);
   };
 
   const shareDetails = async () => {
@@ -43,8 +48,11 @@ export default function GiveModal() {
       await navigator.clipboard.writeText(
         `One33 — Direct Bank Transfer\n\n${SHARE_TEXT}`
       );
+      if (shareTimerRef.current) {
+        clearTimeout(shareTimerRef.current);
+      }
       setShareConfirmed(true);
-      setTimeout(() => setShareConfirmed(false), 2000);
+      shareTimerRef.current = setTimeout(() => setShareConfirmed(false), 2000);
     }
   };
 
@@ -63,7 +71,7 @@ export default function GiveModal() {
           That takes time. Your contribution makes it possible.
         </p>
         <span className="home-partner__card-action">
-          Donate via Zapper or EFT
+          Donate via Zapper or EFT <ArrowRight size={12} />
         </span>
       </button>
 

@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import AnimateIn from "@/components/shared/animate-in";
 import Footer from "@/components/shared/footer";
 import GiveModal from "@/components/shared/give-modal";
@@ -21,9 +21,10 @@ export default function Home() {
             Reconciliation is a{" "}
             <span className="home-hero__accent">harder thing</span> than peace.
           </h1>
-        </div>
-        <div aria-hidden="true" className="home-hero__chevron">
-          <ChevronDown />
+          <div aria-hidden="true" className="home-hero__scroll">
+            <span className="home-hero__scroll-line" />
+            <span className="home-hero__scroll-label">Scroll</span>
+          </div>
         </div>
       </section>
 
@@ -81,6 +82,10 @@ export default function Home() {
             <span className="home-kicker" id="what-heading">
               What We Do
             </span>
+            <p className="home-what__intro">
+              Most organisations arrive with what they can offer. We start by
+              asking what has been lost.
+            </p>
             <div className="home-what__grid">
               <div className="home-what__col">
                 <p className="home-what__col-label font-serif-display">
@@ -154,7 +159,7 @@ export default function Home() {
                   carry a skill set, there is likely a place for it here.
                 </p>
                 <span className="home-partner__card-action">
-                  Tell us what you carry
+                  Tell us what you carry <ArrowRight size={12} />
                 </span>
               </a>
 
@@ -172,9 +177,72 @@ export default function Home() {
                   the willing with the needed.
                 </p>
                 <span className="home-partner__card-action">
-                  Explore partnership
+                  Explore partnership <ArrowRight size={12} />
                 </span>
               </a>
+            </div>
+          </div>
+        </AnimateIn>
+      </section>
+
+      {/* ── Our Governance ────────────────────────── */}
+      <section
+        aria-labelledby="governance-heading"
+        className="home-governance"
+        id="governance"
+      >
+        <AnimateIn>
+          <div className="home-governance__inner">
+            <span className="home-kicker" id="governance-heading">
+              Our Governance
+            </span>
+            <p className="home-governance__lead">
+              We hold ourselves to the same standard we call others to.
+            </p>
+            <p className="home-governance__sub">
+              Trust is not claimed. It is demonstrated through accountability,
+              transparency, and responsible stewardship.
+            </p>
+
+            <div className="home-governance__principles">
+              <div className="home-governance__principle">
+                <p className="home-governance__principle-label">
+                  Accountability
+                </p>
+                <p className="home-governance__principle-body">
+                  We operate under a structured governance framework with
+                  independent oversight, ensuring decisions are made responsibly
+                  and in the best interest of the communities we serve.
+                </p>
+              </div>
+              <div className="home-governance__principle">
+                <p className="home-governance__principle-label">
+                  Financial Integrity
+                </p>
+                <p className="home-governance__principle-body">
+                  All funds are carefully managed, tracked, and reported. We are
+                  committed to responsible stewardship and clear financial
+                  transparency.
+                </p>
+              </div>
+              <div className="home-governance__principle">
+                <p className="home-governance__principle-label">
+                  Ethical Leadership
+                </p>
+                <p className="home-governance__principle-body">
+                  Our leadership is guided by strong values, with clear checks
+                  and balances to ensure integrity in both decision-making and
+                  implementation.
+                </p>
+              </div>
+              <div className="home-governance__principle">
+                <p className="home-governance__principle-label">Compliance</p>
+                <p className="home-governance__principle-body">
+                  We adhere to all relevant South African NPO regulations and
+                  requirements, including reporting, tax compliance, and Section
+                  18A where applicable.
+                </p>
+              </div>
             </div>
           </div>
         </AnimateIn>

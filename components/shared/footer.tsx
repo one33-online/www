@@ -54,6 +54,24 @@ export default function Footer() {
             ONE33 is a registered South African NPO, PBO, and Section&nbsp;18A
             tax-benefit organisation.
           </p>
+          <dl className="footer-reg-numbers">
+            <div className="footer-reg-row">
+              <dt>NPC Reg</dt>
+              <dd>2021/510585/08</dd>
+            </div>
+            <div className="footer-reg-row">
+              <dt>NPO</dt>
+              <dd>299-875</dd>
+            </div>
+            <div className="footer-reg-row">
+              <dt>PBO</dt>
+              <dd>930087781</dd>
+            </div>
+            <div className="footer-reg-row">
+              <dt>Income Tax</dt>
+              <dd>9123111255</dd>
+            </div>
+          </dl>
           <p className="footer-copyright">© {year} ONE33</p>
         </div>
       </div>

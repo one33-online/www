@@ -1,13 +1,23 @@
+import { Cormorant_Garamond } from "next/font/google";
 import Image from "next/image";
 import AnimateIn from "@/components/shared/animate-in";
 import ConceptToggle from "@/components/shared/concept-toggle";
 import Footer from "@/components/shared/footer";
 import Nav from "@/components/shared/nav";
+import { cn } from "@/lib/utils";
 import "./concept-d.css";
+
+const cormorantGaramond = Cormorant_Garamond({
+  weight: ["300", "400", "600"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
 
 export default function ConceptD() {
   return (
-    <div className="concept-d">
+    <div className={cn("concept-d", cormorantGaramond.variable)}>
       <Nav cta={{ label: "Donate", href: "#give" }} />
 
       {/* ── Hero ──────────────────────────────────────── */}
