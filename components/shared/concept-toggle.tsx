@@ -28,7 +28,7 @@ function ConceptToggleInner() {
                 "concept-toggle__btn",
                 current === key && "concept-toggle__btn--active"
               )}
-              href={`/?c=${key}`}
+              href={`/v1/?c=${key}`}
             >
               <span className="concept-toggle__word">Concept </span>
               {key.toUpperCase()}

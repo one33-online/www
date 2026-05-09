@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 const defaultNavLinks = [
   { label: "What We Do", href: "#what-we-do" },
   { label: "Partner With Us", href: "#partner" },
-  { label: "Governance", href: "/governance" },
 ];
 
 interface NavLink {
@@ -31,10 +30,7 @@ export default function Nav({
     { label: "What We Do", href: "#what-we-do" },
     { label: "Why We Exist", href: "#why-we-exist" },
   ],
-  splitRight = [
-    { label: "Partner With Us", href: "#partner" },
-    { label: "Governance", href: "/governance" },
-  ],
+  splitRight = [{ label: "Partner With Us", href: "#partner" }],
 }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

@@ -33,12 +33,7 @@ export const metadata: Metadata = {
   description:
     "A South African reconciliation organisation working toward genuine reconciliation between people across the divides that history has built.",
   icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico" },
-    ],
-    apple: "/apple-touch-icon.png",
+    icon: { url: "/favicon.svg", type: "image/svg+xml" },
   },
 };
 

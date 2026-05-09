@@ -1,8 +1,8 @@
 import { ChevronDown } from "lucide-react";
 import AnimateIn from "@/components/shared/animate-in";
 import Footer from "@/components/shared/footer";
+import GiveModal from "@/components/shared/give-modal";
 import Nav from "@/components/shared/nav";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
@@ -17,11 +17,9 @@ export default function Home() {
         <div aria-hidden="true" className="home-hero__image-slot" />
         <div aria-hidden="true" className="home-hero__overlay" />
         <div className="home-hero__content">
-          <p className="home-hero__subline font-serif-display">
-            One33 exists for the harder thing
-          </p>
           <h1 className="home-hero__headline">
-            Reconciliation is a harder thing than peace.
+            Reconciliation is a{" "}
+            <span className="home-hero__accent">harder thing</span> than peace.
           </h1>
         </div>
         <div aria-hidden="true" className="home-hero__chevron">
@@ -41,7 +39,7 @@ export default function Home() {
               Why We Exist
             </span>
             <p className="home-why__line">
-              One33 exists to build our nation through reconciliation.
+              ONE33 exists to build our nation through reconciliation.
             </p>
             <p className="home-why__serif-moment font-serif-display">
               Not surface-level peace. Not forced agreement.
@@ -65,7 +63,7 @@ export default function Home() {
               brought back together — with honesty, humility, and purpose.
             </p>
             <p className="home-why__psalm">
-              The name <em>One33</em> comes from an ancient declaration: "How
+              The name <em>ONE33</em> comes from an ancient declaration: "How
               good and pleasing it is when brothers dwell together in unity."
             </p>
           </div>
@@ -131,6 +129,9 @@ export default function Home() {
             <span className="home-kicker" id="partner-heading">
               Partner With Us
             </span>
+            <h2 className="home-partner__headline font-serif-display">
+              There's a place for you in this work.
+            </h2>
             <div className="home-partner__opening">
               <p className="home-partner__opening-line">
                 Reconciliation takes time
@@ -138,129 +139,43 @@ export default function Home() {
               <p className="home-partner__opening-line">It takes presence</p>
               <p className="home-partner__opening-line">It takes trust</p>
             </div>
-            <div className="home-partner__items">
-              <div className="home-partner__item">
-                <p aria-hidden="true" className="home-partner__item-num">
-                  01 —
-                </p>
-                <div className="home-partner__item-content">
-                  <h3 className="home-partner__item-title">Give Financially</h3>
-                  <p className="home-partner__item-desc">
-                    Your giving funds ongoing presence in communities — not a
-                    once-off visit. One33 stays until trust is built and
-                    restoration is underway. That takes time. Your contribution
-                    makes it possible.
-                  </p>
-                  <a className="home-partner__item-link" href="#give">
-                    Donate via Zapper or EFT
-                  </a>
-                </div>
-              </div>
+            <div className="home-partner__cards">
+              <GiveModal />
 
-              <div className="home-partner__item">
-                <p aria-hidden="true" className="home-partner__item-num">
-                  02 —
+              <a
+                className="home-partner__card"
+                href={`mailto:${contactEmail}?subject=${encodeURIComponent("Offering my skills")}&body=${encodeURIComponent("Hi,\n\nI'd like to offer my skills in support of ONE33's work.\n\nHere's what I carry:\n\n")}`}
+              >
+                <p className="home-partner__card-num">02 —</p>
+                <h3 className="home-partner__card-title">Offer Your Skills</h3>
+                <p className="home-partner__card-body">
+                  Communities have lost things that require real expertise to
+                  restore — legal, educational, trade, entrepreneurial. If you
+                  carry a skill set, there is likely a place for it here.
                 </p>
-                <div className="home-partner__item-content">
-                  <h3 className="home-partner__item-title">
-                    Offer Your Skills
-                  </h3>
-                  <p className="home-partner__item-desc">
-                    Communities have lost things that require real expertise to
-                    restore — legal, educational, trade, entrepreneurial. If you
-                    carry a skill set, there is likely a place for it here.
-                  </p>
-                  <a
-                    className="home-partner__item-link"
-                    href={`mailto:${contactEmail}`}
-                  >
-                    Tell us what you carry
-                  </a>
-                </div>
-              </div>
+                <span className="home-partner__card-action">
+                  Tell us what you carry
+                </span>
+              </a>
 
-              <div className="home-partner__item">
-                <p aria-hidden="true" className="home-partner__item-num">
-                  03 —
+              <a
+                className="home-partner__card"
+                href={`mailto:${contactEmail}?subject=${encodeURIComponent("Exploring partnership with ONE33")}&body=${encodeURIComponent("Hi,\n\nI'd like to explore how I can open my relationships and networks in support of ONE33's work.\n\n")}`}
+              >
+                <p className="home-partner__card-num">03 —</p>
+                <h3 className="home-partner__card-title">
+                  Open Your Relationships
+                </h3>
+                <p className="home-partner__card-body">
+                  Access — to government, to business, to networks and
+                  decision-makers — is itself a form of resource. ONE33 connects
+                  the willing with the needed.
                 </p>
-                <div className="home-partner__item-content">
-                  <h3 className="home-partner__item-title">
-                    Open Your Relationships
-                  </h3>
-                  <p className="home-partner__item-desc">
-                    Access — to government, to business, to networks and
-                    decision-makers — is itself a form of resource. One33
-                    connects the willing with the needed.
-                  </p>
-                  <a
-                    className="home-partner__item-link"
-                    href={`mailto:${contactEmail}`}
-                  >
-                    Explore partnership
-                  </a>
-                </div>
-              </div>
+                <span className="home-partner__card-action">
+                  Explore partnership
+                </span>
+              </a>
             </div>
-          </div>
-        </AnimateIn>
-      </section>
-
-      {/* ── Give ──────────────────────────────────── */}
-      <section
-        aria-labelledby="home-give-heading"
-        className="home-give"
-        id="give"
-      >
-        <AnimateIn>
-          <div className="home-give__inner">
-            <h2 className="home-give__heading" id="home-give-heading">
-              If you believe this matters, this is how it moves.
-            </h2>
-            <div className="home-give__right">
-              <p className="home-give__body">
-                Give via Zapper or direct bank transfer. All contributions
-                qualify for Section 18A tax deductibility. Your giving funds
-                presence in community — ongoing, relational, purposeful.
-              </p>
-              <div className="home-give__actions">
-                <Button className="home-cta-btn">Donate via Zapper</Button>
-                <details className="home-give__details">
-                  <summary className="home-give__summary">
-                    Bank transfer details
-                  </summary>
-                  <div className="home-give__bank">
-                    <strong>Account Name</strong> Lead One33 NPC
-                    <br />
-                    <strong>Account Number</strong> 63141958299
-                    <br />
-                    <strong>Branch Code</strong> 220629
-                    <br />
-                    <strong>Branch Name</strong> UMHLANGA CRESCENT 501
-                    <br />
-                    <strong>Swift Code</strong> FIRNZAJJ
-                  </div>
-                </details>
-              </div>
-            </div>
-          </div>
-        </AnimateIn>
-      </section>
-
-      {/* ── Stories ───────────────────────────────── */}
-      <section
-        aria-labelledby="stories-heading"
-        className="home-stories"
-        id="stories"
-      >
-        <AnimateIn>
-          <div className="home-stories__inner">
-            <span className="home-kicker" id="stories-heading">
-              Stories
-            </span>
-            <p className="home-stories__placeholder">
-              Coming soon. Real stories from people and communities who have
-              been part of reconciliation work through One33.
-            </p>
           </div>
         </AnimateIn>
       </section>
