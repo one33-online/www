@@ -1,7 +1,6 @@
 import "./footer.css";
 import { FileText, Mail } from "lucide-react";
 import One33Logo from "@/components/icons/one33-logo";
-import { Separator } from "@/components/ui/separator";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +8,6 @@ export default function Footer() {
 
   return (
     <footer className="footer-root">
-      <Separator className="footer-separator" />
       <div className="footer-inner">
         <div className="footer-row footer-row--main">
           <One33Logo className="footer-logo" variant="wordmark" />

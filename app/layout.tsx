@@ -28,19 +28,19 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
-  title: "One33",
+  title: "ONE33",
   description,
   openGraph: {
-    title: "One33",
+    title: "ONE33",
     description,
     url: appUrl,
-    siteName: "One33",
+    siteName: "ONE33",
     type: "website",
     locale: "en_ZA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "One33",
+    title: "ONE33",
     description,
   },
   icons: {
