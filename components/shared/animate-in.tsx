@@ -30,7 +30,7 @@ export default function AnimateIn({
           observer.disconnect();
         }
       },
-      { threshold: 0.08 }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
 
     observer.observe(el);

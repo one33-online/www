@@ -96,6 +96,13 @@
   margin: 0;
 }
 
+@media (max-width: 480px) {
+  .footer-reg-numbers {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
 .footer-reg-row {
   display: flex;
   gap: 0.5rem;
