@@ -1,5 +1,6 @@
 /* animate-in.css — scroll-triggered fade-up reveal */
 
+/* Block mode (default): the whole wrapper reveals as one unit. */
 .animate-in-wrap {
   opacity: 0;
   transform: translateY(1.75rem);
@@ -13,8 +14,29 @@
   transform: translateY(0);
 }
 
+/* Stagger mode: the wrapper stays put; each direct child reveals in sequence. */
+.animate-in-wrap[data-stagger] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.animate-in-wrap[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(1.75rem);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-in-wrap[data-stagger][data-visible="true"] > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-in-wrap {
+  .animate-in-wrap,
+  .animate-in-wrap[data-stagger] > * {
     opacity: 1;
     transform: none;
     transition: none;
