@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Check, Copy, Share2 } from "lucide-react";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import {
   Dialog,
@@ -8,6 +9,15 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+
+// The Zapper Code string encoded in the QR image. Wrapping it in a
+// payWithZapper link opens the Zapper app on the payment screen on mobile,
+// and falls back to zapper.com on desktop.
+const ZAPPER_CODE =
+  "http://2.zap.pe?t=6&i=72533:91641:7[34||3:10[38|One33,39|ZAR";
+const ZAPPER_LINK = `https://www.zapper.com/payWithZapper?qr=${encodeURIComponent(
+  ZAPPER_CODE
+)}&appName=ONE33`;
 
 const EFT_DETAILS = [
   { label: "Account Name", value: "Lead ONE33 NPC" },
@@ -95,11 +105,23 @@ export default function GiveModal() {
 
             <div className="give-modal__section">
               <p className="give-modal__section-label">Zapper</p>
-              <div className="give-modal__zapper-slot">
-                <p className="give-modal__zapper-placeholder">
-                  Zapper QR code coming soon
-                </p>
-              </div>
+              <a
+                className="give-modal__zapper"
+                href={ZAPPER_LINK}
+                rel="noopener"
+                target="_blank"
+              >
+                <Image
+                  alt="Scan to donate to ONE33 with the Zapper app"
+                  className="give-modal__zapper-qr"
+                  height={180}
+                  src="/images/one33-zapper-qr-code.png"
+                  width={180}
+                />
+                <span className="give-modal__zapper-cta">
+                  Scan, or tap to open Zapper <ArrowRight size={12} />
+                </span>
+              </a>
             </div>
 
             <div className="give-modal__section">

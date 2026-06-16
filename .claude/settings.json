@@ -1,6 +1,11 @@
 {
   "permissions": {
-    "allow": ["Skill(shadcn)", "Skill(shadcn:*)"]
+    "allow": [
+      "Skill(shadcn)",
+      "Skill(shadcn:*)",
+      "WebSearch",
+      "WebFetch(domain:zapper.gitbook.io)"
+    ]
   },
   "hooks": {
     "PostToolUse": [
