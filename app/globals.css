@@ -583,11 +583,22 @@
 
 /* ── Give Modal ──────────────────────────────────── */
 .give-modal {
+  display: flex;
+  flex-direction: column;
   max-width: 480px;
-  padding: 2.5rem;
+  max-height: 90dvh;
+  padding: 0;
+  overflow: hidden;
   background: var(--one33-cream);
   border: 1px solid rgba(14, 12, 10, 0.1);
   border-radius: 0;
+}
+
+.give-modal__body {
+  flex: 1;
+  min-height: 0;
+  padding: 2.5rem;
+  overflow-y: auto;
 }
 
 .give-modal__title {
@@ -787,17 +798,8 @@
     grid-template-columns: 1fr;
   }
 
-  .give-modal {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    overflow: hidden;
-  }
-
   .give-modal__body {
-    flex: 1;
     padding: 2.5rem 1.5rem 1.5rem;
-    overflow-y: auto;
   }
 
   .home-governance__inner {
