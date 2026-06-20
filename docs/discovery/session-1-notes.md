@@ -64,7 +64,7 @@ Not the masses. People who are likely to engage in some form of partnership — 
 
 - Distinct from Anthem Church
 - Logo by Sade — black and white. Name renders as **One33** or **ONE33** (not the numeral "133"). Richard is not precious about the logo but likes the written-out form with numerals and the Ubuntu-style feel.
-- Three brand words confirmed: **Resolved. Grounded. Human.** — intended as an active design and copy filter, not decorative language.
+- Three brand words (working): **Resolved. Grounded. Human.** — intended as an active design and copy filter, not decorative language. *(Later replaced in Session 3 by Richard's words: Emotional. Aggrieved. Grateful.)*
 - Image-driven over typography-driven
 - South African story — not trying to be generic or global
 - No poverty imagery

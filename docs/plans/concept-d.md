@@ -11,7 +11,7 @@ This is the Concept D session plan. Read `docs/plans/00-shared.md` first and com
 
 **Reference:** The HTML prototype shared by Josh during concept review (dark editorial, noise overlay, square cursor, Cormorant + Outfit font pairing, ink/parchment palette). Adapt to the project font system and Next.js component constraints.
 
-**Brand filter:** Resolved. Grounded. Human. This concept feels the most *resolved* of the four — it does not reach for warmth through texture or approachability. The warmth is in the copy and the photography, not the visual system.
+**Brand filter:** Emotional. Aggrieved. Grateful. *(Richard's confirmed words, Session 3; this plan was written against the earlier working words — Resolved. Grounded. Human.)* Against those original words, this concept felt the most *resolved* of the four — it does not reach for warmth through texture or approachability. The warmth is in the copy and the photography, not the visual system.
 
 **What it is not:** A softer Concept A. Each structural addition (Give section, docs strip, image strip, pull quote) has a purpose and should not be removed for simplicity.
 
@@ -54,7 +54,7 @@ Same family as Concept A. Accent shifts from `--one33-terracotta` to `--one33-ru
 
 ## Typography
 
-The HTML reference uses Cormorant Garamond for all serif type — a more dramatic cut than Instrument Serif. In the Next.js implementation, Instrument Serif (`font-serif-display`) substitutes for all display serif moments. The visual weight will differ; the brand register (Resolved, Grounded, Human) is not harmed by the substitution.
+The HTML reference uses Cormorant Garamond for all serif type — a more dramatic cut than Instrument Serif. In the Next.js implementation, Instrument Serif (`font-serif-display`) substitutes for all display serif moments. The visual weight will differ; the brand register (then Resolved, Grounded, Human; now Emotional, Aggrieved, Grateful) is not harmed by the substitution.
 
 | Role | Font | Notes |
 |---|---|---|

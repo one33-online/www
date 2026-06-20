@@ -6,7 +6,7 @@
 
 A website for One33, a South African reconciliation ministry. The organisation does two things: facilitates reconciliatory dialogue between communities (relational), and connects organisations, government, skills, and communities to enable actual restoration (practical). It does the relational work directly; it facilitates the practical work rather than executing it.
 
-The site is a one-pager plus a standalone Governance page. The brand register is institutional and confrontational without aggression — not a generic nonprofit, not a startup. Brand filter: **Resolved. Grounded. Human.**
+The site is a one-pager plus a standalone Governance page. The brand register is institutional and confrontational without aggression — not a generic nonprofit, not a startup. Brand filter: **Emotional. Aggrieved. Grateful.** (Richard's words, confirmed Session 3; originally the working placeholders *Resolved. Grounded. Human.*)
 
 ---
 
